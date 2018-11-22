@@ -21,6 +21,8 @@ gem 'sass-rails', '~> 5.0'
 
 # Use valid_email2 to validate emails
 gem 'valid_email2'
+# Use phonelib to validate phnoe numbers
+gem 'phonelib'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
