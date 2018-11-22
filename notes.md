@@ -68,3 +68,5 @@
 11. DRY up code.
 
 12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden.
+
+13. Add more features, such as friendly_id.
