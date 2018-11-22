@@ -7,5 +7,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    reset_session
+    flash[:notice] = "You have successfully logged out."
+    render :new
   end
 end
