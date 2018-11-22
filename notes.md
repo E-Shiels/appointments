@@ -29,7 +29,9 @@
 
  -  You must include a nested index or show route
 
-8. Your forms should correctly display validation errors. a. Your fields should be enclosed within a fields_with_errors class b. Error messages describing the validation failures must be present within the view.
+8. Your forms should correctly display validation errors.
+ a. Your fields should be enclosed within a fields_with_errors class
+ b. Error messages describing the validation failures must be present within the view.
 
 9. Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
 
@@ -65,4 +67,4 @@
 
 11. DRY up code.
 
-12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden. 
+12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden.
