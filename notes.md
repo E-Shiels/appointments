@@ -40,3 +40,29 @@
  - Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
 10. **Do not** use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+
+**PLAN**
+
+1. Build and stub out models, migrations, controllers, and views.
+
+2. Add validations.
+
+3. Add all controller methods.
+
+4. Add all routes.
+
+5. Build basic version of all views.
+
+6. Build out sessions and controller.
+
+7. Add authentication.
+
+8. Finish all controller methods.
+
+9. Build website template.
+
+10. Finish all views.
+
+11. DRY up code.
+
+12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden. 
