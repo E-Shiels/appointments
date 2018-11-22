@@ -12,4 +12,9 @@ Rails.application.routes.draw do
     resources :appointments
   end
 
+  get '/login' => 'sessions#new'
+  post '/sessions' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  root 'static#index'
 end
