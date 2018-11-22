@@ -47,7 +47,7 @@
 
 1. Build and stub out models, migrations, controllers. - DONE
 
-2. Add validations. 
+2. Add validations. - DONE
 
 3. Add all controller methods and views.
 
@@ -69,4 +69,4 @@
 
 12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden.
 
-13. Add more features, such as friendly_id.
+13. Add more features, such as friendly_id, address validation using jt-rails-address or mainstreet.
