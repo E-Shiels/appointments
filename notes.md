@@ -45,11 +45,11 @@
 
 **PLAN**
 
-1. Build and stub out models, migrations, controllers, and views.
+1. Build and stub out models, migrations, controllers.
 
 2. Add validations.
 
-3. Add all controller methods.
+3. Add all controller methods and views.
 
 4. Add all routes.
 
