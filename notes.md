@@ -45,9 +45,9 @@
 
 **PLAN**
 
-1. Build and stub out models, migrations, controllers.
+1. Build and stub out models, migrations, controllers. - DONE
 
-2. Add validations.
+2. Add validations. 
 
 3. Add all controller methods and views.
 
