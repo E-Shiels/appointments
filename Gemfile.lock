@@ -144,6 +144,7 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    timeliness (0.3.8)
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -154,6 +155,8 @@ GEM
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
+    validates_timeliness (4.0.2)
+      timeliness (~> 0.3.7)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -182,6 +185,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   valid_email2
+  validates_timeliness
   web-console (>= 3.3.0)
 
 BUNDLED WITH
