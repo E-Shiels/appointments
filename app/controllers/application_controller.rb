@@ -13,7 +13,12 @@ class ApplicationController < ActionController::Base
 
 
   def logged_in?
-    !!current_user
+    if !current_doctor.nil?
+      !!current_doctor
+    elsif !current_patient.nil?
+      !!current_patient
+    else
+      false
   end
     helper_method :logged_in?
 
