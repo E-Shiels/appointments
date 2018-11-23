@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :appointments do
     resources :patients
     resources :doctors
@@ -16,5 +17,8 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  root 'static#index'
+  get '/about' => 'static#about'
+
+  root 'static#home'
+
 end
