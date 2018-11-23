@@ -1,5 +1,6 @@
 <h1>Appointments#index</h1>
-
+<%= link_to "Add a new appointment", new_appointment_path %>
+<br>
 <% @appointments.each do |a| %>
 <h5> <%= a.date %> </h5>
 <br>

@@ -1,6 +1,12 @@
 class DoctorsController < ApplicationController
 
   def index
+    @doctors = Doctor.all
+    @doctors.each do |d|
+      if d.patients.exclude?(current_patient)
+        @doctors.delete(d)
+      end
+    end
   end
 
   def show
@@ -20,5 +26,5 @@ class DoctorsController < ApplicationController
 
   def destroy
   end
-  
+
 end
