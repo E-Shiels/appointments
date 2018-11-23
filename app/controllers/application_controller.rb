@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def login(user)
-    sessions[:user_id] = user.id
+    session[:user_id] = user.id
   end
 
   def login_required
