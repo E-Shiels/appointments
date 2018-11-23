@@ -49,9 +49,9 @@
 
 2. Add validations. - DONE
 
-3. Add all controller methods and views.
+3. Add all controller methods and views. - DONE
 
-4. Add all routes.
+4. Add all routes. - DONE
 
 5. Build basic version of all views.
 
