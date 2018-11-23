@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
       !!current_patient
     else
       false
+    end
   end
     helper_method :logged_in?
 
