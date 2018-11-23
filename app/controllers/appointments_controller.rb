@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
 
   def index
+    @appointments = Appointment.all
   end
 
   def show
@@ -20,5 +21,5 @@ class AppointmentsController < ApplicationController
 
   def destroy
   end
-  
+
 end
