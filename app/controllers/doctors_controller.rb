@@ -1,6 +1,7 @@
 class DoctorsController < ApplicationController
 
   def index
+    #BROKEN
     @doctors = Doctor.all
     @doctors.each do |d|
       if d.patients.exclude?(current_patient)
