@@ -1,2 +1,11 @@
-<h1>Appointments#show</h1>
-<p>Find me in app/views/appointments/show.html.erb</p>
+<h1>Appointment View</h1>
+<h5> <%= @appointment.date %> </h5>
+<br>
+<h5> <%= @appointment.doctor %> </h5>
+<br>
+<h5> <%= @appointment.patient %> </h5>
+<br>
+<p> <%= @appointment.description %> </p>
+<hr>
+<%= link_to "Edit appointment", edit_appointment_path %>
+<%# <%= button_to "Delete appointment", appointment_path, method: "delete"%> %>
