@@ -1,0 +1,15 @@
+<h1>Login</h1>
+<%= form_for(:session, url: sessions_path, method: :post) do |f| %>
+  <% if !flash.now[:notice].nil? || !flash[:notice].nil? %>
+  <p> <%= flash.now[:notice] || flash[:notice] %> </p>
+  <% end %>
+  <%= f.label :email %>
+  <%= f.email_field :email%>
+
+  <%= f.label :password %>
+  <%= f.password_field :password%>
+
+  <%= f.submit "Log in"%>
+<% end %>
+<p>New Doctor? <%= link_to "Sign up as a doctor!", new_doctor_path %></p>
+<p>New Patient? <%= link_to "Sign up as a patient!", new_patient_path %></p>
