@@ -17,9 +17,15 @@ class ApplicationController < ActionController::Base
   end
     helper_method :logged_in?
 
-  def current_user
-    @current_user ||= User.find(sessions[:user.id]) if sessions[:user_id].present?
+  def current_doctor
+    @current_doctor ||= Doctor.find(sessions[:user_id]) if sessions[:user_id].present?
   end
-    helper_method :current_user
+    helper_method :current_doctor
+
+  def current_patient
+    @current_patient ||= Patient.find(sessions[:user_id]) if sessions[:user_id].present?
+  end
+    helper_method :current_patient
+
 
 end
