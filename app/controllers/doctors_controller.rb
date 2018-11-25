@@ -1,13 +1,8 @@
 class DoctorsController < ApplicationController
 
   def index
-    #BROKEN
     @doctors = Doctor.all
-    @doctors.each do |d|
-      if d.patients.exclude?(current_patient)
-        @doctors.delete(d)
-      end
-    end
+    #TEMPORARY
   end
 
   def show
