@@ -1,8 +1,5 @@
 class PatientsController < ApplicationController
 
-  def index
-  end
-
   def show
   end
 
@@ -11,7 +8,7 @@ class PatientsController < ApplicationController
 
   def create
   end
-  
+
   def edit
   end
 
