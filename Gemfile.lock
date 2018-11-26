@@ -64,6 +64,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.3)
     crass (1.0.4)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     execjs (2.7.0)
     faraday (0.15.3)
@@ -203,6 +207,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  dotenv-rails
   jbuilder (~> 2.5)
   omniauth (~> 1.6.1)
   omniauth-auth0 (~> 2.0.0)

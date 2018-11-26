@@ -43,6 +43,8 @@ gem 'jbuilder', '~> 2.5'
  gem 'omniauth', '~> 1.6.1'
  gem 'omniauth-auth0', '~> 2.0.0'
 
+ gem 'dotenv-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
