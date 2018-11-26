@@ -9,7 +9,7 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = Patient.new
+    @patient = Patient.new(patient_params)
     if @patient.save
       session[:user_id] = @patient.id
       flash[:notice] = "You have successfully signed up."
