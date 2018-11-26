@@ -19,4 +19,9 @@ class PatientsController < ApplicationController
   def destroy
   end
 
+  private
+  def patient_params
+    params.require(:item).permit(:name, :gender, :age, :address, :phone, :email, :password)
+  end
+
 end

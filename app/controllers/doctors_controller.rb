@@ -24,4 +24,9 @@ class DoctorsController < ApplicationController
   def destroy
   end
 
+  private
+  def doctor_params
+    params.require(:item).permit(:name, :gender, :specialty, :practice_name, :practice_location, :phone, :email, :password)
+  end
+
 end
