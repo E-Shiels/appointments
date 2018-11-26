@@ -1,2 +1,19 @@
 <h1>Patients#new</h1>
-<p>Find me in app/views/patients/new.html.erb</p>
+<%= form_for @patient do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :gender %>
+<%= f.radio_button("gender", "M")%>
+<%= f.radio_button("gender", "F")%>
+<%= f.label :age %>
+<%= f.text_field :age %>
+<%= f.label :address %>
+<%= f.text_field :address %>
+<%= f.label :phone %>
+<%= f.telephone_field :phone %>
+<%= f.label :email %>
+<%= f.email_field :email %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.button "Signup"%>
+<% end %>
