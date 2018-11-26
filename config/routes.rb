@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   end
 
   get '/login' => 'sessions#new'
-  post '/sessions' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  post '/sessions/create' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 
   get '/about' => 'static#about'
 
