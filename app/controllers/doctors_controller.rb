@@ -42,6 +42,7 @@ class DoctorsController < ApplicationController
   def destroy
     find_doctor_from_params
     @doctor.destroy
+    redirect_to :root
   end
 
   private

@@ -42,6 +42,7 @@ class AppointmentsController < ApplicationController
   def destroy
     find_appointment_from_params
     @appointment.destroy
+    redirect_to :appointments_path
   end
 
   private
