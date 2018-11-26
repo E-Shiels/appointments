@@ -1,2 +1,21 @@
 <h1>Doctors#edit</h1>
-<p>Find me in app/views/doctors/edit.html.erb</p>
+<%= form_for @doctor do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :gender %>
+<%= f.radio_button("gender", "M")%>
+<%= f.radio_button("gender", "F")%>
+<%= f.label :specialty %>
+<%= f.text_field :specialty %>
+<%= f.label :practice_name %>
+<%= f.text_field :practice_name %>
+<%= f.label :practice_location %>
+<%= f.text_field :practice_location %>
+<%= f.label :phone %>
+<%= f.telephone_field :phone %>
+<%= f.label :email %>
+<%= f.email_field :email %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.button "Update Doctor Details"%>
+<% end %>
