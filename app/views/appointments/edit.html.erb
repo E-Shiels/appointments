@@ -1,2 +1,14 @@
 <h1>Appointments#edit</h1>
-<p>Find me in app/views/appointments/edit.html.erb</p>
+<%= form_for @appointment do |f| %>
+<%= f.label :date %>
+<%= f.date_field :date %>
+<%= f.label :time %>
+<%= f.time_field :time %>
+<%= f.label :description %>
+<%= f.text_area :description %>
+<%= f.label(:doctor_id, "Doctor") %>
+<%= f.collection_select(:doctor_id, Doctor.all, :id, :name) %>
+<%= f.label(:patient_id, "Patient") %>
+<%= f.collection_select(:patient_id, Patient.all, :id, :name) %>
+<%= f.button "Update Appointment"%>
+<% end %>
