@@ -29,9 +29,19 @@ class AppointmentsController < ApplicationController
   end
 
   def update
+    find_appointment_from_params
+    if @appointment.update(appointment_params)
+      flash[:notice] = "Appointment sucessfully updated"
+      redirect_to @appointment
+    else
+      flash[:notice] = "Appointment update failed"
+      render :edit
+    end
   end
 
   def destroy
+    find_appointment_from_params
+    @appointment.destroy
   end
 
   private
