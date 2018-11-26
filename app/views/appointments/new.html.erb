@@ -6,4 +6,9 @@
 <%= f.time_field :time %>
 <%= f.label :description %>
 <%= f.text_area :description %>
+<%= f.label(:doctor_id, "Doctor") %>
+<%= f.collection_select(:doctor_id, Doctor.all, :id, :name) %>
+<%= f.label(:patient_id, "Patient") %>
+<%= f.collection_select(:patient_id, Patient.all, :id, :name) %>
+<%= f.button "Book Appointment"%>
 <% end %>
