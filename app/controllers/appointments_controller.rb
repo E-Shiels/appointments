@@ -6,7 +6,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.find(params[:id])
+    find_appointment_from_params
   end
 
   def new
@@ -14,10 +14,18 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+    @appointment = Appointment.new(appointment_params)
+    if @appointment.save
+      flash[:notice] = "Appointment sucessfully created"
+      redirect_to @appointment
+    else
+      flash[:notice] = "Appointment creation failed"
+      render :new
+    end
   end
 
   def edit
-    @appointment = Appointment.find(params[:id])
+    find_appointment_from_params
   end
 
   def update
@@ -28,6 +36,10 @@ class AppointmentsController < ApplicationController
 
   private
   def appointment_params
-    params.require(:item).permit(:date, :time, :doctor_id, :patient_id, :description)
+    params.require(:appointment).permit(:date, :time, :doctor_id, :patient_id, :description)
+  end
+
+  def find_appointment_from_params
+      @appointment = Appointment.find(params[:id])
   end
 end
