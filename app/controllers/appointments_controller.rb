@@ -26,4 +26,8 @@ class AppointmentsController < ApplicationController
   def destroy
   end
 
+  private
+  def appointment_params
+    params.require(:item).permit(:date, :time, :doctor_id, :patient_id, :description)
+  end
 end
