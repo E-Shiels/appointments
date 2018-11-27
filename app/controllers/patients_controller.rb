@@ -42,23 +42,50 @@ class PatientsController < ApplicationController
 
   def edit
     find_patient_from_params
+    if current_patient
+      unless current_patient == @patient
+        redirect_to patient_path(current_patient)
+      end
+    elsif current_doctor
+      redirect_to doctor_path(current_doctor)
+    else
+      redirect_to :root
+    end
   end
 
   def update
     find_patient_from_params
-    if @patient.update(patient_params)
-      flash[:notice] = "Patient was successfully updated."
-      redirect_to :root
+    if current_patient
+      if current_patient == @patient
+        if @patient.update(patient_params)
+          flash[:notice] = "Patient details were successfully updated."
+          redirect_to :root
+        else
+          flash[:notice] = "Patient update failed."
+          render :new
+        end
+      else
+        flash[:notice] = "You can't edit another Patients details."
+      end
     else
-      flash[:notice] = "Patient update failed."
-      render :new
+      flash[:notice] = "You can't edit a Patients details."
     end
   end
 
   def destroy
     find_patient_from_params
-    @patient.destroy
-    redirect_to :root
+    if current_patient
+      if current_patient == @patient
+        @patient.destroy
+        reset_session
+        flash[:notice] = "You have successfully deleted your account."
+        redirect_to :root
+      else
+        flash[:notice] = "You can't delete another Patients account."
+      end
+    else
+      flash[:notice] = "You can't delete a Patient."
+    end
   end
 
   private
