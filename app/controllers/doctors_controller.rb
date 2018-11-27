@@ -36,12 +36,21 @@ class DoctorsController < ApplicationController
 
   def edit
     find_doctor_from_params
+    if current_doctor
+      unless current_doctor == @doctor
+        redirect_to doctor_path(current_doctor)
+      end
+    elsif current_patient
+      redirect_to doctor_path(current_doctor)
+    else
+      redirect_to :root
+    end     
   end
 
   def update
     find_doctor_from_params
     if current_doctor
-      if current_doctor = @doctor
+      if current_doctor == @doctor
         if @doctor.update(doctor_params)
           flash[:notice] = "Doctor details were successfully updated."
           redirect_to :root
@@ -60,7 +69,7 @@ class DoctorsController < ApplicationController
   def destroy
     find_doctor_from_params
     if current_doctor
-      if current_doctor = @doctor
+      if current_doctor == @doctor
         @doctor.destroy
         reset_session
         flash[:notice] = "You have successfully deleted your account."

@@ -2,9 +2,29 @@ class PatientsController < ApplicationController
 
   def show
     find_patient_from_params
+    unless current_patient = @patient
+      doctor = Doctor.find_by_id(session[:doctor_id])
+      patient = Patient.find_by_id(session[:patient_id])
+      if doctor
+        redirect_to doctor_path(doctor)
+      elsif patient
+        redirect_to patient_path(patient)
+      else
+        redirect_to :root
+      end
+    end
   end
 
   def new
+    if logged_in?
+      doctor = Doctor.find_by_id(session[:doctor_id])
+      patient = Patient.find_by_id(session[:patient_id])
+      if doctor
+        redirect_to doctor_path(doctor)
+      elsif patient
+        redirect_to patient_path(patient)
+      end
+    end
     @patient = Patient.new
   end
 
