@@ -45,19 +45,37 @@ class DoctorsController < ApplicationController
 
   def update
     find_doctor_from_params
-    if @doctor.update(doctor_params)
-      flash[:notice] = "Doctor was successfully updated."
-      redirect_to :root
+    if current_doctor
+      if current_doctor = @doctor
+        if @doctor.update(doctor_params)
+          flash[:notice] = "Doctor details were successfully updated."
+          redirect_to :root
+        else
+          flash[:notice] = "Doctor update failed."
+          render :new
+        end
+      else
+        flash[:notice] = "You can't edit another Doctors details."
+      end
     else
-      flash[:notice] = "Doctor update failed."
-      render :new
+      flash[:notice] = "You can't edit a Doctors details."
     end
   end
 
   def destroy
     find_doctor_from_params
-    @doctor.destroy
-    redirect_to :root
+    if current_doctor
+      if current_doctor = @doctor
+        @doctor.destroy
+        reset_session
+        flash[:notice] = "You have successfully deleted your account."
+        redirect_to :root
+      else
+        flash[:notice] = "You can't delete another Doctors account."
+      end
+    else
+      flash[:notice] = "You can't delete a Doctor."
+    end
   end
 
   private
