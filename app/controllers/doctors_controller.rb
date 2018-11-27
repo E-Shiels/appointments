@@ -24,19 +24,14 @@ class DoctorsController < ApplicationController
 
   def create
     @doctor = Doctor.new(doctor_params)
-    if Doctor.find_by(:email => params[:doctor][:email]) || Patient.find_by(:email => params[:doctor][:email])
-      flash[:notice] = "An account with this email already exists."
+    if @doctor.save
+      session[:doctor_id] = @doctor.id
+      flash[:notice] = "You have successfully signed up."
+      redirect_to @doctor
+    else
+      flash[:notice] = "Signup failed"
       render :new
-      else
-        if @doctor.save
-          session[:doctor_id] = @doctor.id
-          flash[:notice] = "You have successfully signed up."
-          redirect_to @doctor
-        else
-          flash[:notice] = "Signup failed"
-          render :new
-        end
-      end
+    end
   end
 
   def edit
