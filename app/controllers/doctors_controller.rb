@@ -41,10 +41,10 @@ class DoctorsController < ApplicationController
         redirect_to doctor_path(current_doctor)
       end
     elsif current_patient
-      redirect_to doctor_path(current_doctor)
+      redirect_to patient_path(current_patient)
     else
       redirect_to :root
-    end     
+    end
   end
 
   def update
