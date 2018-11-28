@@ -42,6 +42,12 @@ gem 'jbuilder', '~> 2.5'
 
  gem 'dotenv-rails'
 
+ gem 'thin'
+
+ gem 'omniauth'
+ gem 'omniauth-github'
+
+gem 'dotenv-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
