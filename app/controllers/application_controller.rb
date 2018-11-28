@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
 
   def login_required
     if !logged_in?
-      redirect_to login_path, :notice => "Please login to view that page."
+      flash[:notice] = "Please login to view that page."
+      redirect_to login_path
     end
   end
 
@@ -27,7 +28,7 @@ class ApplicationController < ActionController::Base
     end
   end
     helper_method :logged_in?
-    
+
 
   def current_doctor
     @current_doctor ||= Doctor.find(session[:doctor_id]) if session[:doctor_id].present?

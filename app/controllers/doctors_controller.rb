@@ -14,8 +14,10 @@ class DoctorsController < ApplicationController
       doctor = Doctor.find_by_id(session[:doctor_id])
       patient = Patient.find_by_id(session[:patient_id])
       if doctor
+        flash[:notice] = "You already have an account."
         redirect_to doctor_path(doctor)
       elsif patient
+        flash[:notice] = "You cant't create a Doctor account."
         redirect_to patient_path(patient)
       end
     end
