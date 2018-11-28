@@ -17,7 +17,7 @@ class DoctorsController < ApplicationController
         flash[:notice] = "You already have an account."
         redirect_to doctor_path(doctor)
       elsif patient
-        flash[:notice] = "You cant't create a Doctor account."
+        flash[:notice] = "You can't create a Doctor account."
         redirect_to patient_path(patient)
       end
     end
@@ -26,7 +26,17 @@ class DoctorsController < ApplicationController
 
   def create
     @doctor = Doctor.new(doctor_params)
-    if @doctor.save
+    if logged_in?
+      doctor = Doctor.find_by_id(session[:doctor_id])
+      patient = Patient.find_by_id(session[:patient_id])
+      if doctor
+        flash[:notice] = "You already have an account."
+        redirect_to doctor_path(doctor)
+      elsif patient
+        flash[:notice] = "You can't create a Doctor account."
+        redirect_to patient_path(patient)
+      end
+    elsif @doctor.save
       session[:doctor_id] = @doctor.id
       flash[:notice] = "You have successfully signed up."
       redirect_to @doctor
