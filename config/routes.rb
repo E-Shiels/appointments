@@ -19,8 +19,8 @@ Rails.application.routes.draw do
 
   get '/about' => 'static#about'
 
-  get '/auth/github/callback' => 'sessions#create'
-  get 'auth/failure', to: redirect('/')
+  #get '/auth/github/callback' => 'sessions#create'
+  #get 'auth/failure', to: redirect('/')
 
 
   root 'static#home'
