@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get '/about' => 'static#about'
 
+  get '/auth/github/callback' => 'sessions#create'
+
   root 'static#home'
 
 end
