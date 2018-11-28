@@ -1,8 +1,7 @@
 class AppointmentsController < ApplicationController
 
   def index
-    @appointments = Appointment.all
-    #@appointments = Appointment.where("patient_id = ?", params[:user_id])
+    @appointments = Appointment.where("patient_id = ?", session[:patient_id])
   end
 
   def show
