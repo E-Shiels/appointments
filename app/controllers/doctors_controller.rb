@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  before_action :login_required, except: [:index, :show, :new, :create]
+  #before_action :login_required, except: [:index, :show, :new, :create]
 
   def index
     @doctors = Doctor.all
