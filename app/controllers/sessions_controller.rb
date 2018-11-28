@@ -22,7 +22,9 @@ class SessionsController < ApplicationController
         login_patient(patient)
           redirect_to patient_path(patient)
       end
-      else
+    elsif request.env['omniauth.auth'].present?
+      raise params.inspect
+    else
         flash.now[:notice] = "Error. Please, try again."
         render :new
     end
