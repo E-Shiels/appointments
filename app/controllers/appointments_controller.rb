@@ -35,38 +35,112 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    unless logged_in?
+      flash[:notice] = "You must be signed in to create an appointment."
+      redirect_to :root
+    end
   end
 
   def create
     @appointment = Appointment.new(appointment_params)
-    if @appointment.save
-      flash[:notice] = "Appointment sucessfully created"
-      redirect_to @appointment
+    if logged_in?
+      if current_doctor
+        if @appointment.save
+          flash[:notice] = "Appointment sucessfully created"
+          redirect_to @appointment
+        else
+          flash[:notice] = "Appointment creation failed"
+          render :new
+        end
+      else
+        flash[:notice] = "You can't create an appointment."
+        redirect_to patient_path(current_patient)
+      end
     else
-      flash[:notice] = "Appointment creation failed"
-      render :new
+      flash[:notice] = "You need to log in to create an appointment."
+      redirect_to :root
     end
   end
 
   def edit
     find_appointment_from_params
+    if logged_in?
+      if current_doctor
+        unless current_doctor = @appointment.doctor
+          flash[:notice] = "You can't edit thiss appointment."
+          redirect_to :appointments
+        end
+      elsif current_patient
+        unless curent_patient = @appointment.patient
+          flash[:notice] = "You can't edit thiss appointment."
+          redirect_to :appointments
+        end
+      end
+      flash[:notice] = "You must be signed in to edit an appointment."
+      redirect_to :root
+    end
   end
 
   def update
     find_appointment_from_params
-    if @appointment.update(appointment_params)
-      flash[:notice] = "Appointment sucessfully updated"
-      redirect_to @appointment
-    else
-      flash[:notice] = "Appointment update failed"
-      render :edit
+    if logged_in?
+      if current_patient
+        if current_patient = @appointment.patient
+          if @appointment.update(appointment_params)
+            flash[:notice] = "Appointment sucessfully updated"
+            redirect_to @appointment
+          else
+            flash[:notice] = "Appointment update failed"
+            render :edit
+          end
+        else
+          flash[:notice] = "You can't edit this appointment."
+          redirect_to :appointments
+        end
+      elsif current_doctor
+        if current_doctor = @appointment.doctor
+          if @appointment.update(appointment_params)
+            flash[:notice] = "Appointment sucessfully updated"
+            redirect_to @appointment
+          else
+            flash[:notice] = "Appointment update failed"
+            render :edit
+          end
+        else
+          flash[:notice] = "You can't edit this appointment."
+          redirect_to :appointments
+        end
+      else
+        redirect_to :root
+      end
     end
-  end
+end
 
   def destroy
     find_appointment_from_params
-    @appointment.destroy
-    redirect_to :appointments_path
+    if logged_in?
+      if current_doctor
+        if current_doctor = @appointment.doctor
+          @appointment.destroy
+          flash[:notice] = "Appointment sucessfully cancelled"
+          redirect_to :appointments
+        else
+          flash[:notice] = "You can't cancel this appointment."
+          redirect_to :appointments
+        end
+      elsif current_patient
+        if current_patient = @appintment.patient
+          @appointment.destroy
+          flash[:notice] = "Appointment sucessfully cancelled"
+          redirect_to :appointments
+        else
+          flash[:notice] = "You can't cancel this appointment."
+          redirect_to :appointments
+        end
+      end
+    else
+      redirect_to :root
+    end
   end
 
   private
