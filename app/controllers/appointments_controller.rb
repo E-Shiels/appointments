@@ -1,11 +1,36 @@
 class AppointmentsController < ApplicationController
 
   def index
-    @appointments = Appointment.where("patient_id = ?", session[:patient_id])
+    if logged_in?
+      if current_patient
+        @appointments = Appointment.where("patient_id = ?", current_patient.id)
+      elsif current_doctor
+        @appointments = Appointment.where("doctor_id = ?", current_doctor.id)
+      end
+    else
+      flash[:notice] = "You can't view appointments becuase you aren't logged in."
+      redirect_to :root
+    end
   end
 
   def show
     find_appointment_from_params
+    if logged_in?
+      if current_patient
+        unless current_patient = @appointment.patient
+          flash[:notice] = "You can't view this appointment."
+          redirect_to :appointments
+        end
+      elsif current_doctor
+        unless current_doctor = @appointment.doctor
+          flash[:notice] = "You can't view this appointment."
+          redirect_to :appointments
+        end
+      end
+    else
+      flash[:notice] = "You can't view appointments becuase you aren't logged in."
+      redirect_to :root
+    end
   end
 
   def new
