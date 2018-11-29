@@ -46,28 +46,29 @@ body {
 h1 {
   font-family: sans-serif;
   font-size: 3em;
+  color: white;
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 55px;
 }
 
 h2{
   font-family: sans-serif;
+  color: white;
   margin-left: 5%;
   margin-right: 5%;
-  font-size: 1em;
-  padding-top: 10px;
+  font-size: 2.2em;
 }
 
-h3{
+h3 {
   font-family: sans-serif;
+  color: white;
   margin-left: 5%;
   margin-right: 5%;
   font-size: 1em;
-  padding-top: 10px;
 }
 
-h4
-{
+h4 {
   font-family: sans-serif;
   margin-left: 5%;
   margin-right: 5%;
@@ -80,7 +81,46 @@ p {
   font-family: sans-serif;
   margin-left: 5%;
   margin-right: 5%;
+  color: white;
 }
+
+a {
+  font-family: sans-serif;
+  color: white;
+  font-size: 1em;
+  margin-top: 10%;
+}
+
+.home-page-link {
+  font-family: sans-serif;
+  color: rgb(14,34,113);
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 2em;
+  text-decoration: none;
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.margin-top-div {
+  margin-top: 40px;
+}
+
+.welcome-title {
+  margin-top: 15%;
+}
+
+#about-back-button {
+  margin-left: 5%;
+  font-size: 1.3em;
+  text-decoration: none;
+  background-color: white;
+  color: rgb(14,34,113);
+  border-radius: 8px;
+  padding: 8px;
+}
+
 
 input {
   font-family: sans-serif;

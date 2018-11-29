@@ -1,8 +1,13 @@
-<h1>HOME</h1>
-<h3><%= link_to "ABOUT", about_path %>
-<br>
-<%= link_to "Sign up as a doctor", new_doctor_path %>
-<br>
-<%= link_to "Sign up as a patient", new_patient_path %>
-<br>
-<%= link_to "Sign in", login_path %>
+<h2 class="welcome-title">Welcome to Appointments!</h2>
+<div class="margin-top-div">
+<strong><%= link_to "ABOUT", about_path, class: "home-page-link"%></strong>
+</div>
+<div class="margin-top-div">
+<%= link_to "Sign up as a doctor", new_doctor_path, class: "home-page-link"  %>
+</div>
+<div class="margin-top-div">
+<%= link_to "Sign up as a patient", new_patient_path, class: "home-page-link" %>
+</div>
+<div class="margin-top-div">
+<%= link_to "Sign in", login_path, class: "home-page-link"  %>
+</div>
