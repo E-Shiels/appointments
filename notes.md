@@ -2,7 +2,7 @@
 
 2. Your models must:
 
- - Include at least one has many, at least one belongs to, and at least two has many :through relationships
+ - Include at least one has many, at least one belongs to, and at least two has many :through relationships - Yes
 
 	Doctor has many appointments and has many patients through appointments
 
@@ -14,13 +14,13 @@
  - Include a many-to-many relationship implemented with has many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
 
 
-3. Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
+3. Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data. -Yes
 
-4. You must include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
+4. You must include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort). - Still to do
 
-5. Your application must provide standard user authentication, including signup, login, logout, and passwords.
+5. Your application must provide standard user authentication, including signup, login, logout, and passwords. - Yes
 
-6. Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
+6. Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc... - Waiting until the end
 
 7. You must include and make use of a nested resource with the appropriate RESTful URLs.
 
