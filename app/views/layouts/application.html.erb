@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Appointments</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Appointments</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= link_to("Logout", logout_path, :method => :delete)%>
-    <%= yield %>
-  </body>
+<body>
+
+  <div class="nav-background">
+    <a href="/programs" id="navbar-title"> Appointments </a>
+    <% if logged_in? %>
+    <%= link_to "Logout", logout_path, :method => "delete", :class => "navbar_button"%>
+    <% end %>
+
+  </div>
+
+  <%= yield %>
+
+</body>
+
+<footer>
+  <a href="https://www.freepik.com/free-vector/abstract-geometric-hexagonal-medical_2870384.htm">Designed by Starline</a>
+</footer>
 </html>

@@ -1,15 +1,159 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+
+/* CUSTOM FONTS - Currently broken*/
+@font-face {
+  font-family: "MuseoSansLight";
+  src: url(/assets/Museo300-Regular-webfont.woff) format("woff");
+}
+
+@font-face {
+  font-family: "MuseoSansRegular";
+  src: url(/assets/Museo500-Regular-webfont.woff) format("woff");
+}
+
+@font-face {
+  font-family: "MuseoSansHeavy";
+  src: url(/assets/Museo500-Regular-webfont.woff) format("woff");
+}
+
+html {
+  background: url(15002.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-family: 'MuseoSansHeavy', sans-serif;
+  font-size: 3em;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+h2, h3, h4 {
+  font-family: 'MuseoSansRegular', sans-serif;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 2em;
+  padding-top: 10px;
+}
+
+p {
+  font-size: 1.2em;
+  font-family: 'MuseoSansRegular', sans-serif;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+input {
+  font-family: 'MuseoSansRegular', monospace;
+  font-size: 1.2em;
+}
+
+button {
+  font-family: 'MuseoSansRegular', monospace;
+  font-size: 1.2em;
+}
+
+label {
+  font-family: 'MuseoSansRegular', monospace;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+tr {
+  font-family: 'MuseoSansRegular', monospace;
+}
+
+th {
+  font-family: 'MuseoSansRegular', monospace;
+  border: 2px solid black;
+  font-size: 1.6em;
+  padding: 10px;
+  text-align: center;
+}
+
+td {
+  font-family: 'MuseoSansRegular', monospace;
+  border: 2px solid black;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+form {
+  margin-left: 5%;
+}
+
+a#navbar-title {
+  font-family: 'MuseoSansHeavy', sans-serif;
+  font-size: 100%;
+  position: fixed;
+  margin-top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(255, 250, 250);
+  text-decoration: none;
+}
+
+div.nav-background {
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  margin-top: -30px;
+  background-color: rgb(14,34,113);
+  z-index: -1;
+  max-height: 46px;
+  min-height: 40px;
+}
+
+a.navbar-button {
+  font-family: 'MuseoSansRegular', sans-serif;
+  font-size: 110%;
+  position: fixed;
+  margin-top: -30px;
+  left: 80%;
+  transform: translateX(-50%);
+  color: rgb(255, 250, 250);
+  text-decoration: none;
+  background-color: rgb(212, 30, 35);
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 1%;
+  padding-right: 1%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  text-align: center;
+}
+
+a.navbar-button:hover {
+  background-color: rgb(194, 26, 31);
+}
