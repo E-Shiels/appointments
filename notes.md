@@ -59,7 +59,7 @@
 
 7. Add authentication and authorization. - Authorization mostly done, 3rd party authentication cant be done right now.
 
-8. Finish all controller methods.
+8. Finish all controller methods. - DONE
 
 9. Build website template.
 
