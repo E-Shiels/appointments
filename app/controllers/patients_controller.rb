@@ -2,7 +2,10 @@ class PatientsController < ApplicationController
 
   def show
     find_patient_from_params
-    unless current_patient = @patient
+    if logged_in?
+      if current_patient = @patient
+
+      else
       doctor = Doctor.find_by_id(session[:doctor_id])
       patient = Patient.find_by_id(session[:patient_id])
       if doctor
@@ -12,6 +15,9 @@ class PatientsController < ApplicationController
       else
         redirect_to :root
       end
+    end
+    else
+    redirect_to :root
     end
   end
 
