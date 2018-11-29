@@ -11,18 +11,31 @@
 <body>
 
   <div class="nav-background">
-    <a href="/programs" id="navbar-title"> Appointments </a>
+    <h1 id="navbar-title"> Appointments </h1>
+  <ul>
     <% if logged_in? %>
-    <%= link_to "Logout", logout_path, :method => "delete", :class => "navbar_button"%>
+    <li><%= link_to "Logout", logout_path, :method => "delete"%></li>
+    <% end %>
+
+    <% if !logged_in? %>
+    <li><%= link_to "Login", login_path, :class => "navbar_button"%></li>
+    <% end %>
+  </ul>
+
+  <% if flash[:notice] %>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <%= flash[:notice] %>
+    </div>
     <% end %>
 
   </div>
-
   <%= yield %>
 
 </body>
 
 <footer>
-  <a href="https://www.freepik.com/free-vector/abstract-geometric-hexagonal-medical_2870384.htm">Designed by Starline</a>
+  <p>Website designed by Eric Shiels</p>
+  <p><a href="https://www.freepik.com/free-vector/abstract-geometric-hexagonal-medical_2870384.htm">Background designed by Starline</a></p>
 </footer>
 </html>
