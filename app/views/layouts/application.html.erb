@@ -11,7 +11,7 @@
 <body>
 
   <div class="nav-background">
-    <a href="" id="navbar-title"> Appointments </a>
+    <%= link_to "Appointments", root_path, :id => "navbar-title" %>
   <ul>
     <% if logged_in? %>
     <li><%= link_to "Logout", logout_path, :method => "delete"%></li>
