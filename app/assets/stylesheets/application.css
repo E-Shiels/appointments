@@ -103,6 +103,29 @@ a {
   padding: 8px;
 }
 
+a.show-page-button {
+  font-family: sans-serif;
+  color: rgb(14,34,113);
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 2em;
+  text-decoration: none;
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+input.show-page-button {
+  font-family: sans-serif;
+  color: rgb(14,34,113);
+  margin-right: 5%;
+  font-size: 2em;
+  text-decoration: none;
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+}
+
 .margin-top-div {
   margin-top: 40px;
 }
@@ -143,7 +166,7 @@ label {
 
 table {
   border-collapse: collapse;
-  border: 2px solid black;
+  border: 2px solid white;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -154,7 +177,8 @@ tr {
 
 th {
   font-family: sans-serif;
-  border: 2px solid black;
+  color: white;
+  border: 2px solid white;
   font-size: 1.6em;
   padding: 10px;
   text-align: center;
@@ -162,7 +186,8 @@ th {
 
 td {
   font-family: sans-serif;
-  border: 2px solid black;
+  color: white;
+  border: 2px solid white;
   font-size: 1.2em;
   padding: 10px;
 }

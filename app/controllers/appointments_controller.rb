@@ -88,7 +88,7 @@ class AppointmentsController < ApplicationController
         if current_patient = @appointment.patient
           if @appointment.update(appointment_params)
             flash[:notice] = "Appointment sucessfully updated"
-            redirect_to @appointment
+            redirect_to appointment_path(@appointment)
           else
             flash[:notice] = "Appointment update failed"
             render :edit
@@ -101,7 +101,7 @@ class AppointmentsController < ApplicationController
         if current_doctor = @appointment.doctor
           if @appointment.update(appointment_params)
             flash[:notice] = "Appointment sucessfully updated"
-            redirect_to @appointment
+            redirect_to appointment_path(@appointment)
           else
             flash[:notice] = "Appointment update failed"
             render :edit

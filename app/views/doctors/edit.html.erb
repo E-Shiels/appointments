@@ -1,21 +1,39 @@
-<h1>Doctors#edit</h1>
+<h1>Edit Your Personal Details</h1>
 <%= form_for @doctor do |f| %>
 <%= f.label :name %>
+<br>
 <%= f.text_field :name %>
+<br>
+
 <%= f.label :gender %>
-<%= f.radio_button("gender", "M")%>
-<%= f.radio_button("gender", "F")%>
+<br>
+<%= f.label :gender, 'M', :value => 'M' , :class => "small-label" %>
+<%= f.radio_button :gender, 'M' %>
+<%= f.label :gender, 'F', :value => 'F' , :class => "small-label" %>
+<%= f.radio_button :gender, 'F' %>
+<br>
+
 <%= f.label :specialty %>
+<br>
 <%= f.text_field :specialty %>
+<br>
+
 <%= f.label :practice_name %>
+<br>
 <%= f.text_field :practice_name %>
+<br>
+
 <%= f.label :practice_location %>
+<br>
 <%= f.text_field :practice_location %>
+<br>
+
 <%= f.label :phone %>
+<br>
 <%= f.telephone_field :phone %>
-<%= f.label :email %>
-<%= f.email_field :email %>
-<%= f.label :password %>
-<%= f.password_field :password %>
+<br>
 <%= f.button "Update Doctor Details"%>
 <% end %>
+<div class = "margin-top-div">
+<%= link_to "Cancel", doctor_path(@doctor), :class => "show-page-button" %>
+</div>

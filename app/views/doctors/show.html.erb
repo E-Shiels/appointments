@@ -1,14 +1,44 @@
-<h1>Doctor View</h1>
-<h5> <%= @doctor.name %> </h5>
-<br>
-<h5> <%= @doctor.gender %> </h5>
-<br>
-<h5> <%= @doctor.specialty %> </h5>
-<br>
-<h5> <%= @doctor.practice_name %> - <%= @doctor.practice_location %> </h5>
-<br>
-<h5> <%= @doctor.phone %> </h5>
-<br>
-<h5> <%= @doctor.email %> </h5>
-<br>
-<%= link_to "Edit doctor", edit_doctor_path %>
+<% if @doctor == current_doctor %>
+  <h1>Your Details</h1>
+<% else %>
+  <h1>Doctor View</h1>
+<% end %>
+<table>
+  <tr>
+    <th>Name</th>
+    <td><%= @doctor.name %> </td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td><%= @doctor.gender %></td>
+  </tr>
+  <tr>
+    <th>Specialty</th>
+    <td><%= @doctor.specialty %></td>
+  </tr>
+  <tr>
+    <th>Practice Name</th>
+    <td><%= @doctor.practice_name %></td>
+  </tr>
+  <tr>
+    <th>Practice Location</th>
+    <td><%= @doctor.practice_location %></td>
+  </tr>
+  <tr>
+    <th>Phone Number</th>
+    <td><%= @doctor.phone %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td> <%= @doctor.email %></td>
+  </tr>
+</table>
+
+<% if @doctor == current_doctor %>
+<div class="margin-top-div">
+<%= link_to "Edit doctor", edit_doctor_path, :class => "show-page-button" %>
+</div>
+<div class="margin-top-div">
+<%= button_to "Delete your account", doctor_path(@doctor), method: :delete, data: { confirm: 'Are your sure you want to delete your account?'}, :class => "show-page-button" %>
+</div>
+<% end %>

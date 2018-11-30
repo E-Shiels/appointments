@@ -65,7 +65,7 @@ class DoctorsController < ApplicationController
       if current_doctor == @doctor
         if @doctor.update(doctor_params)
           flash[:notice] = "Doctor details were successfully updated."
-          redirect_to :root
+          redirect_to @doctor
         else
           flash[:notice] = "Doctor update failed."
           render :new
