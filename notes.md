@@ -27,7 +27,7 @@
 
  - You must include a nested new route with form that relates to the parent resource
 
- -  You must include a nested index or show route
+ -  You must include a nested index or show route - doctors/:id/appointments/:id && patients/:id/appointments/:id
 
 8. Your forms should correctly display validation errors.
  a. Your fields should be enclosed within a fields_with_errors class
@@ -61,9 +61,9 @@
 
 8. Finish all controller methods. - DONE
 
-9. Build website template.
+9. Build website template. - DONE/WORKING
 
-10. Finish all views.
+10. Finish all views. - DONE/WORKING
 
 11. DRY up code.
 
