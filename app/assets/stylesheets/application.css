@@ -307,6 +307,14 @@ li a {
   z-index: 10;
 }
 
+.notice {
+  padding: 20px;
+  background-color: #6bbd6e;
+  color: white;
+  position: relative;
+  z-index: 10;
+}
+
 .closebtn {
   margin-left: 15px;
   color: white;
