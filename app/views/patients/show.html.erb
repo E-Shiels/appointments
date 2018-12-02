@@ -1,14 +1,40 @@
-<h1>Patient View</h1>
-<h5> <%= @patient.name %> </h5>
-<br>
-<h5> <%= @patient.gender %> </h5>
-<br>
-<h5> <%= @patient.age %> </h5>
-<br>
-<h5> <%= @patient.address %></h5>
-<br>
-<h5> <%= @patient.phone %> </h5>
-<br>
-<h5> <%= @patient.email %> </h5>
-<br>
-<%= link_to "Edit patient", edit_patient_path %>
+<% if @patient == current_patient %>
+  <h1>Your Details</h1>
+<% else %>
+  <h1>Patient View</h1>
+<% end %>
+<table>
+  <tr>
+    <th>Name</th>
+    <td><%= @patient.name %> </td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td><%= @patient.gender %></td>
+  </tr>
+  <tr>
+    <th>Age</th>
+    <td><%= @patient.age %></td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td><%= @patient.address %></td>
+  </tr>
+  <tr>
+    <th>Phone Number</th>
+    <td><%= @patient.phone %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td> <%= @patient.email %></td>
+  </tr>
+</table>
+
+<% if @patient == current_patient %>
+<div class="margin-top-div">
+<%= link_to "Edit patient", edit_patient_path, :class => "show-page-button" %>
+</div>
+<div class="margin-top-div">
+<%= button_to "Delete your account", patient_path(@patient), method: :delete, data: { confirm: 'Are your sure you want to delete your account?'}, :class => "show-page-button" %>
+</div>
+<% end %>
