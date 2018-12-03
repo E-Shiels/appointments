@@ -1,6 +1,6 @@
 <h1>Your Appointments</h1>
-<%= link_to "Add a new appointment", new_appointment_path %>
-<br>
+<%= link_to "Add a new appointment", new_appointment_path, :class => "show-page-button" %>
+<hr>
 <% @appointments.each do |a| %>
 <table>
   <tr>
