@@ -1,19 +1,46 @@
-<h1>Patients#edit</h1>
+<h1>Edit your personal details</h1>
+<h2>All fields are required. </h2>
 <%= form_for @patient do |f| %>
 <%= f.label :name %>
+<br>
 <%= f.text_field :name %>
+<br>
+
 <%= f.label :gender %>
-<%= f.radio_button("gender", "M")%>
-<%= f.radio_button("gender", "F")%>
+<br>
+<%= f.label :gender, 'M', :value => 'M' , :class => "small-label" %>
+<%= f.radio_button :gender, 'M' %>
+<%= f.label :gender, 'F', :value => 'F' , :class => "small-label" %>
+<%= f.radio_button :gender, 'F' %>
+<br>
+
 <%= f.label :age %>
+<br>
 <%= f.text_field :age %>
+<br>
+
 <%= f.label :address %>
+<br>
 <%= f.text_field :address %>
+<br>
+
 <%= f.label :phone %>
+<br>
 <%= f.telephone_field :phone %>
+<br>
+
 <%= f.label :email %>
+<br>
 <%= f.email_field :email %>
+<br>
+
 <%= f.label :password %>
+<br>
 <%= f.password_field :password %>
-<%= f.button "Update patient details"%>
+<br>
+
+<%= f.button "Update patient", data: { confirm: 'Are your sure you want to save changes to your details?'}%>
 <% end %>
+<div class = "margin-top-div">
+<%= link_to "Cancel", patient_path(@patient), data: { confirm: 'Are your sure you want to discard any changes?'}, :class => "show-page-button" %>
+</div>
