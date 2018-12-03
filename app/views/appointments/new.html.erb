@@ -1,4 +1,4 @@
-<h1>Appointments#new</h1>
+<h1>New Appointment</h1>
 <h2>All fields are required. </h2>
 <%= form_for @appointment do |f| %>
 <%= f.label :date %>
@@ -15,7 +15,8 @@
 <br>
 <%= f.label(:doctor_id, "Doctor") %>
 <br>
-<%= f.collection_select(:doctor_id, Doctor.all, :id, :name) %>
+<p><%= current_doctor.name %></p>
+<%= f.hidden_field :doctor_id, :value => current_doctor.id %>
 <br>
 <%= f.label(:patient_id, "Patient") %>
 <br>
