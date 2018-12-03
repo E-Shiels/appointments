@@ -71,7 +71,7 @@ class AppointmentsController < ApplicationController
     if logged_in?
       if current_doctor
         unless current_doctor = @appointment.doctor
-          flash[:alert] = "You can't edit thiss appointment."
+          flash[:alert] = "You can't edit this appointment."
           redirect_to :appointments
         end
       elsif current_patient
@@ -80,6 +80,7 @@ class AppointmentsController < ApplicationController
           redirect_to :appointments
         end
       end
+    else
       flash[:alert] = "You must be signed in to edit an appointment."
       redirect_to :root
     end
