@@ -35,9 +35,13 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
-    unless logged_in?
-      flash[:notice] = "You must be signed in to create an appointment."
+    unless logged_in? && current_doctor
+      flash[:notice] = "You must be signed in as a doctor to create an appointment."
+      if !logged_in?
       redirect_to :root
+      else
+        redirect_to patient_path(current_patient)
+      end
     end
   end
 
