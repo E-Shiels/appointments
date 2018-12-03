@@ -41,7 +41,7 @@ class PatientsController < ApplicationController
       flash[:notice] = "You have successfully signed up."
       redirect_to @patient
     else
-      flash[:notice] = "Signup failed"
+      flash[:alert] = "Signup failed"
       render :new
     end
   end
@@ -67,14 +67,14 @@ class PatientsController < ApplicationController
           flash[:notice] = "Patient details were successfully updated."
           redirect_to :root
         else
-          flash[:notice] = "Patient update failed."
+          flash[:alert] = "Patient update failed."
           render :new
         end
       else
-        flash[:notice] = "You can't edit another Patients details."
+        flash[:alert] = "You can't edit another Patients details."
       end
     else
-      flash[:notice] = "You can't edit a Patients details."
+      flash[:alert] = "You can't edit a Patients details."
     end
   end
 
@@ -87,10 +87,10 @@ class PatientsController < ApplicationController
         flash[:notice] = "You have successfully deleted your account."
         redirect_to :root
       else
-        flash[:notice] = "You can't delete another Patients account."
+        flash[:alert] = "You can't delete another Patients account."
       end
     else
-      flash[:notice] = "You can't delete a Patient."
+      flash[:alert] = "You can't delete a Patient."
     end
   end
 

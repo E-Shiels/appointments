@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     elsif request.env['omniauth.auth'].present?
       raise params.inspect
     else
-        flash.now[:notice] = "Error. Please, try again."
+        flash.now[:alert] = "Error. Please, try again."
         render :new
     end
   end

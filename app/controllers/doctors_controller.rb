@@ -1,4 +1,4 @@
-class DoctorsController < ApplicationController
+alertclass DoctorsController < ApplicationController
   #before_action :login_required, except: [:index, :show, :new, :create]
 
   def index
@@ -14,10 +14,10 @@ class DoctorsController < ApplicationController
       doctor = Doctor.find_by_id(session[:doctor_id])
       patient = Patient.find_by_id(session[:patient_id])
       if doctor
-        flash[:notice] = "You already have an account."
+        flash[:alert] = "You already have an account."
         redirect_to doctor_path(doctor)
       elsif patient
-        flash[:notice] = "You can't create a Doctor account."
+        flash[:alert] = "You can't create a Doctor account."
         redirect_to patient_path(patient)
       end
     end
@@ -30,10 +30,10 @@ class DoctorsController < ApplicationController
       doctor = Doctor.find_by_id(session[:doctor_id])
       patient = Patient.find_by_id(session[:patient_id])
       if doctor
-        flash[:notice] = "You already have an account."
+        flash[:alert] = "You already have an account."
         redirect_to doctor_path(doctor)
       elsif patient
-        flash[:notice] = "You can't create a Doctor account."
+        flash[:alert] = "You can't create a Doctor account."
         redirect_to patient_path(patient)
       end
     elsif @doctor.save
@@ -41,7 +41,7 @@ class DoctorsController < ApplicationController
       flash[:notice] = "You have successfully signed up."
       redirect_to @doctor
     else
-      flash[:notice] = "Signup failed"
+      flash[:alert] = "Signup failed"
       render :new
     end
   end
@@ -67,14 +67,14 @@ class DoctorsController < ApplicationController
           flash[:notice] = "Doctor details were successfully updated."
           redirect_to @doctor
         else
-          flash[:notice] = "Doctor update failed."
+          flash[:alert] = "Doctor update failed."
           render :new
         end
       else
-        flash[:notice] = "You can't edit another Doctors details."
+        flash[:alert] = "You can't edit another Doctors details."
       end
     else
-      flash[:notice] = "You can't edit a Doctors details."
+      flash[:alert] = "You can't edit a Doctors details."
     end
   end
 
@@ -87,10 +87,10 @@ class DoctorsController < ApplicationController
         flash[:notice] = "You have successfully deleted your account."
         redirect_to :root
       else
-        flash[:notice] = "You can't delete another Doctors account."
+        flash[:alert] = "You can't delete another Doctors account."
       end
     else
-      flash[:notice] = "You can't delete a Doctor."
+      flash[:alert] = "You can't delete a Doctor."
     end
   end
 
