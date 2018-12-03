@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         redirect_to doctor_path(doctor)
       elsif patient && patient.authenticate(params[:session][:password])
         login_patient(patient)
-          redirect_to patient_path(patient)
+        redirect_to patient_path(patient)
       end
     elsif request.env['omniauth.auth'].present?
       raise params.inspect
