@@ -1,13 +1,29 @@
-<h1>Appointments#index</h1>
+<h1>Your Appointments</h1>
 <%= link_to "Add a new appointment", new_appointment_path %>
 <br>
 <% @appointments.each do |a| %>
-<h5> <%= a.date %> </h5>
-<br>
-<h5> <%= a.doctor %> </h5>
-<br>
-<h5> <%= a.patient %> </h5>
-<br>
-<p> <%= a.description %> </p>
+<table>
+  <tr>
+    <th>Date</th>
+    <td><%= a.date %></td>
+  </tr>
+  <tr>
+    <th>Doctor</th>
+    <td><%= a.doctor.name %></td>
+  </tr>
+  <tr>
+    <th>Patient</th>
+    <td><%= a.patient.name %></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td><%= a.description %></td>
+  </tr>
+  </table>
+<div class="small-margin-top-div">
+<%=link_to "View Full Details", appointment_path(a), :class => "show-page-button" %>
+</div>
 <hr>
 <% end %>
+<div class='space-bottom-div'>
+</div>
