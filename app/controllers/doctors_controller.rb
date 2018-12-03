@@ -1,4 +1,4 @@
-alertclass DoctorsController < ApplicationController
+class DoctorsController < ApplicationController
   #before_action :login_required, except: [:index, :show, :new, :create]
 
   def index
@@ -6,7 +6,7 @@ alertclass DoctorsController < ApplicationController
   end
 
   def show
-    find_doctor_from_params
+      find_doctor_from_params
   end
 
   def new
