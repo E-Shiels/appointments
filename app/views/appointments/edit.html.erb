@@ -1,14 +1,26 @@
-<h1>Appointments#edit</h1>
+<h1>Edit Appointment</h1>
+<h2>All fields are required. </h2>
 <%= form_for @appointment do |f| %>
 <%= f.label :date %>
+<br>
 <%= f.date_field :date %>
+<br>
 <%= f.label :time %>
+<br>
 <%= f.time_field :time %>
+<br>
 <%= f.label :description %>
+<br>
 <%= f.text_area :description %>
+<br>
 <%= f.label(:doctor_id, "Doctor") %>
-<%= f.collection_select(:doctor_id, Doctor.all, :id, :name) %>
+<br>
+<p><%= current_doctor.name %></p>
+<%= f.hidden_field :doctor_id, :value => current_doctor.id %>
+<br>
 <%= f.label(:patient_id, "Patient") %>
+<br>
 <%= f.collection_select(:patient_id, Patient.all, :id, :name) %>
-<%= f.button "Update Appointment"%>
+<br>
+<%= f.button "Edit Appointment"%>
 <% end %>
