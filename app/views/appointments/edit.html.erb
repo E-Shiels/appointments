@@ -22,5 +22,8 @@
 <br>
 <%= f.collection_select(:patient_id, Patient.all, :id, :name) %>
 <br>
-<%= f.button "Update Appointment"%>
+<%= f.button "Update Appointment", data: { confirm: 'Are you sure you want to save changes to this appointment?'}%>
 <% end %>
+<div class="margin-top-div">
+<%= link_to "Back", appointment_path(@appointment), { confirm: 'Are you sure you want to discard any changes?'}, :class => "show-page-button"%>
+</div>

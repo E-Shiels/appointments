@@ -42,5 +42,5 @@
 <%= f.button "Signup"%>
 <% end %>
 <div class="margin-top-div">
-<%= link_to "Back", root_path, :class => "show-page-button"%>
+<%= link_to "Back", root_path, data: { confirm: 'Are you sure you want to cancel account creation?'}, :class => "show-page-button"%>
 </div>
