@@ -35,7 +35,7 @@
 </table>
 
 <div class="margin-top-div">
-<% if @doctor.appointments && @doctor == current_doctor %>
+<% if @doctor == current_doctor %>
   <%= link_to "View Appointments", appointments_path, :class => "show-page-button" %>
 <% end %>
 </div>

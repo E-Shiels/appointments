@@ -17,6 +17,10 @@
     <td><%= @appointment.description %></td>
   </tr>
 </table>
+
+<div class="margin-top-div">
+<%= link_to "View Appointments", appointments_path, :class => "show-page-button" %>
+</div>
 <div class="margin-top-div">
 <%= link_to "Edit appointment", edit_appointment_path, :class => "show-page-button" %>
 </div>
