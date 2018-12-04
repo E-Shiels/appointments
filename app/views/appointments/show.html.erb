@@ -5,6 +5,10 @@
     <td><%= @appointment.date %></td>
   </tr>
   <tr>
+    <th>Time</th>
+    <td><%= @appointment.time %></td>
+  </tr>
+  <tr>
     <th>Patient</th>
     <td><%= link_to @appointment.patient.name, patient_path(@appointment.patient) %></td>
   </tr>

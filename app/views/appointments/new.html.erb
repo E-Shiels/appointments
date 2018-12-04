@@ -20,7 +20,7 @@
 <br>
 <%= f.label(:patient_id, "Patient") %>
 <br>
-<%= f.collection_select(:patient_id, Patient.all, :id, :name) %>
+<%= f.collection_select(:patient_id, Patient.all.order('name ASC'), :id, :name, include_blank: "Select a patient") %>
 <br>
 <%= f.button "Book Appointment"%>
 <% end %>

@@ -41,7 +41,7 @@
 
  - Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
-10. **Do not** use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+10. **Do not** use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding. - Yes
 
 **PLAN**
 
@@ -63,7 +63,7 @@
 
 9. Build website template. - DONE/WORKING
 
-10. Finish all views. - DONE/WORKING
+10. Finish all views. - DONE
 
 11. DRY up code.
 
