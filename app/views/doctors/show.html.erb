@@ -33,12 +33,19 @@
     <td> <%= @doctor.email %></td>
   </tr>
 </table>
-
+<div class="margin-top-div">
+<% if @doctor.appointments && @doctor == current_doctor %>
+  <%= link_to "View appointments", appointments_path, :class => "show-page-button" %>
+<% end %>
+</div>
 <% if @doctor == current_doctor %>
 <div class="margin-top-div">
-<%= link_to "Edit doctor", edit_doctor_path, :class => "show-page-button" %>
+<%= link_to "Edit Doctor", edit_doctor_path, :class => "show-page-button" %>
 </div>
 <div class="margin-top-div">
 <%= button_to "Delete your account", doctor_path(@doctor), method: :delete, data: { confirm: 'Are your sure you want to delete your account?'}, :class => "show-page-button" %>
 </div>
 <% end %>
+<div class="margin-top-div">
+<%= link_to "View All Doctors", doctors_path, :class => "show-page-button"%>
+</div>
