@@ -29,7 +29,11 @@
     <td> <%= @patient.email %></td>
   </tr>
 </table>
-
+<div class="margin-top-div">
+<% if @patient.appointments %>
+  <%= link_to "View appointments", appointments_path, :class => "show-page-button" %>
+<% end %>
+</div>
 <% if @patient == current_patient %>
 <div class="margin-top-div">
 <%= link_to "Edit patient", edit_patient_path, :class => "show-page-button" %>
