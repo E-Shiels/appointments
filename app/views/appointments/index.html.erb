@@ -1,5 +1,8 @@
 <h1>Your Appointments</h1>
+<% if current_doctor %>
 <%= link_to "Add a new appointment", new_appointment_path, :class => "show-page-button" %>
+<% end %>
+
 <hr>
 <% @appointments.each do |a| %>
 <table>
@@ -9,11 +12,11 @@
   </tr>
   <tr>
     <th>Doctor</th>
-    <td><%= a.doctor.name %></td>
+    <td><%= link_to a.doctor.name, doctor_path(a.doctor) %></td>
   </tr>
   <tr>
     <th>Patient</th>
-    <td><%= a.patient.name %></td>
+    <td><%= link_to a.patient.name, patient_path(a.patient) %></td>
   </tr>
   <tr>
     <th>Description</th>
