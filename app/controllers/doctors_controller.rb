@@ -7,6 +7,7 @@ class DoctorsController < ApplicationController
 
   def show
       find_doctor_from_params
+      @appointments = Appointment.today
   end
 
   def new

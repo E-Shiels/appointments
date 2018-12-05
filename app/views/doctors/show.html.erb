@@ -50,3 +50,33 @@
 <%= button_to "Delete Your Account", doctor_path(@doctor), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, :class => "show-page-button" %>
 </div>
 <% end %>
+<% if @doctor == current_doctor %>
+<h2>Today's Appointments</h2>
+<hr>
+<% @appointments.each do |a| %>
+<table>
+  <tr>
+    <th>Date</th>
+    <td><%= a.date %></td>
+  </tr>
+  <tr>
+    <th>Time</th>
+    <td><%= a.time %></td>
+  </tr>
+  <tr>
+    <th>Patient</th>
+    <td><%= link_to a.patient.name, patient_path(a.patient) %></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td><%= a.description %></td>
+  </tr>
+  </table>
+  <div class="small-margin-top-div">
+  <%=link_to "View Full Details", doctor_appointment_path(@doctor, a), :class => "show-page-button" %>
+  </div>
+  <hr>
+  <% end %>
+  <% end %>
+  <div class='space-bottom-div'>
+  </div>
