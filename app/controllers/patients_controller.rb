@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
     find_patient_from_params
     if logged_in?
       if current_patient = @patient
-
+        @appointments = Appointment.this_week
       else
       doctor = Doctor.find_by_id(session[:doctor_id])
       patient = Patient.find_by_id(session[:patient_id])
