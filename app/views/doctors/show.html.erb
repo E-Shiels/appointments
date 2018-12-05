@@ -40,6 +40,11 @@
 <% end %>
 </div>
 <div class="margin-top-div">
+<% if @doctor == current_doctor %>
+  <%= link_to "New Appointment", new_doctor_appointment_path(@doctor), :class => "show-page-button" %>
+<% end %>
+</div>
+<div class="margin-top-div">
 <%= link_to "View All Doctors", doctors_path, :class => "show-page-button"%>
 </div>
 <% if @doctor == current_doctor %>
