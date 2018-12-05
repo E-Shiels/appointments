@@ -50,6 +50,8 @@ class AppointmentsController < ApplicationController
     if logged_in?
       if current_doctor
         if @appointment.save
+          @appointment.date = Date.parse(params[:appointment][:date]) unless Date.parse(params[:appointment][:date]).nil?
+          @appointment.save
           flash[:notice] = "Appointment sucessfully created"
           redirect_to @appointment
         else
