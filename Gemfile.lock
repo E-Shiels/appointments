@@ -54,6 +54,7 @@ GEM
       xpath (>= 2.0, < 4.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -114,11 +115,11 @@ GEM
     omniauth-oauth2 (1.5.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
-    phonelib (0.6.27)
+    phonelib (0.6.28)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    pry-rails (0.3.7)
+    pry-rails (0.3.8)
       pry (>= 0.10.4)
     public_suffix (3.0.3)
     puma (3.12.0)
@@ -213,6 +214,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   capybara (~> 2.13)
+  chronic
   coffee-rails (~> 4.2)
   dotenv-rails
   jbuilder (~> 2.5)

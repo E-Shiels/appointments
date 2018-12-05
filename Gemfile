@@ -47,6 +47,8 @@ gem 'jbuilder', '~> 2.5'
  gem 'omniauth'
  gem 'omniauth-github'
 
+ gem 'chronic'
+
 #gem 'openssl', git: 'https://github.com/ruby/openssl'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
