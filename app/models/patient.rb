@@ -8,7 +8,8 @@ class Patient < ApplicationRecord
   validates :gender, presence: true
   validates :age, presence: true
   validates :address, presence: true
-#  validates :attribute, phone: true
+  validates :phone, presence: true
+  validates :email, presence: true
   validates :email, 'valid_email_2/email': { mx: true, disposable: true}
   validates :email, uniqueness: true
 

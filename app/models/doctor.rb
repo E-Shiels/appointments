@@ -9,7 +9,8 @@ class Doctor < ApplicationRecord
   validates :specialty, presence: true
   validates :practice_name, presence: true
   validates :practice_location, presence: true
-#  validates :attribute, phone: true
+  validates :phone, presence: true
+  validates :email, presence: true
   validates :email, 'valid_email_2/email': { mx: true, disposable: true}
   validates :email, uniqueness: true
 end
