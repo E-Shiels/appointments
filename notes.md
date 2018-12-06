@@ -31,10 +31,10 @@ Appointments today scope method and this_week scope method
  -  You must include a nested index or show route - doctors/:id/appointments/:id && patients/:id/appointments/:id
 
 8. Your forms should correctly display validation errors.
- a. Your fields should be enclosed within a fields_with_errors class
- b. Error messages describing the validation failures must be present within the view.
+ a. Your fields should be enclosed within a fields_with_errors class - Using initializer to do same thing
+ b. Error messages describing the validation failures must be present within the view. - Yes
 
-9. Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
+9. Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. - Working
 
  - Logic present in your controllers should be encapsulated as methods in your models.
 
