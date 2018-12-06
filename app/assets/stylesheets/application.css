@@ -126,6 +126,12 @@ input.show-page-button {
   padding: 8px;
 }
 
+input.error {
+  border-width: 4px;
+  border-color: rgb(182, 63, 63);
+  background-color: rgb(255, 205, 205);
+}
+
 .margin-top-div {
   margin-top: 40px;
 }
