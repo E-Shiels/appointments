@@ -14,23 +14,6 @@
 *= require_self
 */
 
-
-/* CUSTOM FONTS - Currently broken
-@font-face {
-font-family: "MuseoSansLight";
-src: url(/assets/Museo300-Regular-webfont.woff) format("woff");
-}
-
-@font-face {
-font-family: "MuseoSansRegular";
-src: url(/assets/Museo500-Regular-webfont.woff) format("woff");
-}
-
-@font-face {
-font-family: "MuseoSansHeavy";
-src: url(/assets/Museo500-Regular-webfont.woff) format("woff");
-}
-*/
 html {
   background: url(15002.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -147,17 +130,6 @@ input.error {
 .welcome-title {
   margin-top: 15%;
 }
-
-#about-back-button {
-  margin-left: 5%;
-  font-size: 1.3em;
-  text-decoration: none;
-  background-color: white;
-  color: rgb(14,34,113);
-  border-radius: 8px;
-  padding: 8px;
-}
-
 
 input {
   font-family: sans-serif;
