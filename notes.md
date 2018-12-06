@@ -23,10 +23,10 @@ Appointments today scope method and this_week scope method
 
 6. Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc... - Waiting until the end
 
-7. You must include and make use of a nested resource with the appropriate RESTful URLs.
+7. You must include and make use of a nested resource with the appropriate RESTful URLs. - Yes
 
 
- - You must include a nested new route with form that relates to the parent resource
+ - You must include a nested new route with form that relates to the parent resource - doctors/:id/appointments/new
 
  -  You must include a nested index or show route - doctors/:id/appointments/:id && patients/:id/appointments/:id
 
