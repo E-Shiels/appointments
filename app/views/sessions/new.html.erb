@@ -1,8 +1,5 @@
 <h1>Login</h1>
 <%= form_for(:session, url: sessions_create_path, method: :post) do |f| %>
-  <% if !flash.now[:notice].nil? || !flash[:notice].nil? %>
-  <p> <%= flash.now[:notice] || flash[:notice] %> </p>
-  <% end %>
   <%= f.label :email %>
   <br>
   <%= f.email_field :email%>
