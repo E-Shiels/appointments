@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
     find_patient_from_params
     if logged_in?
       if current_patient = @patient
-        @appointments = Appointment.this_week
+        @appointments = Appointment.this_week.where("patient_id = ?", current_patient.id)
       else
       doctor = Doctor.find_by_id(session[:doctor_id])
       patient = Patient.find_by_id(session[:patient_id])
@@ -39,7 +39,7 @@ class PatientsController < ApplicationController
     if @patient.save
       session[:user_id] = @patient.id
       flash[:notice] = "You have successfully signed up."
-      redirect_to @patient
+      redirect_to patient_path(@patient)
     else
       flash[:alert] = "Signup failed"
       render :new
