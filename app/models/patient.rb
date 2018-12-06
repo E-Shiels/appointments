@@ -16,7 +16,7 @@ class Patient < ApplicationRecord
   validates :address, presence: true
 
   validates :phone, presence: true
-  validates :phone, numcericality: true
+  validates :phone, numericality: true
 
   validates :email, presence: true
   validates :email, 'valid_email_2/email': { mx: true, disposable: true}
