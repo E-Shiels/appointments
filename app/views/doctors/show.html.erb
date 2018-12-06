@@ -49,7 +49,7 @@
 </div>
 <% if @doctor == current_doctor %>
 <div class="margin-top-div">
-<%= link_to "Edit Doctor", edit_doctor_path, :class => "show-page-button" %>
+<%= link_to "Edit Doctor Details", edit_doctor_path, :class => "show-page-button" %>
 </div>
 <div class="margin-top-div">
 <%= button_to "Delete Your Account", doctor_path(@doctor), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, :class => "show-page-button" %>

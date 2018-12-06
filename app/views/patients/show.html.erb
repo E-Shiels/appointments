@@ -36,13 +36,13 @@
 </div>
 <% if @patient == current_patient %>
 <div class="margin-top-div">
-<%= link_to "Edit patient", edit_patient_path, :class => "show-page-button" %>
+<%= link_to "Edit Patient Details", edit_patient_path, :class => "show-page-button" %>
 </div>
 <div class="margin-top-div">
 <%= button_to "Delete your account", patient_path(@patient), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, :class => "show-page-button" %>
 </div>
 <% end %>
-<% if @patient == current_patient %>
+<% if @patient == current_patient && @patient.appointments.any? %>
 <h2>Appointments In The Next 7 Days</h2>
 <hr>
 <% @appointments.each do |a| %>
