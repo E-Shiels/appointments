@@ -2,15 +2,14 @@ class AppointmentsController < ApplicationController
   before_action :login_required
   before_action :find_appointment_from_params, except: [:index, :new, :create]
 
-
   def index
       if @current_patient
         @appointments = Appointment.where("patient_id = ?", @current_patient.id)
       elsif @current_doctor
         @appointments = Appointment.where("doctor_id = ?", @current_doctor.id)
-    else
-      flash[:alert] = "You can't view appointments becuase you aren't logged in."
-      redirect_to root_path
+      else
+        flash[:alert] = "You can't view appointments becuase you aren't logged in."
+        redirect_to root_path
     end
   end
 
@@ -29,7 +28,6 @@ class AppointmentsController < ApplicationController
         flash[:alert] = "You can't view appointments becuase you aren't logged in."
         redirect_to root_path
       end
-    end
   end
 
   def new
@@ -37,7 +35,7 @@ class AppointmentsController < ApplicationController
     unless logged_in? && @current_doctor
       flash[:alert] = "You must be signed in as a doctor to create an appointment."
       if !logged_in?
-      redirect_to root_path
+        redirect_to root_path
       else
         redirect_to patient_path(@current_patient)
       end
@@ -64,7 +62,7 @@ class AppointmentsController < ApplicationController
 
   def edit
       if @current_doctor
-        unless c@urrent_doctor = @appointment.doctor
+        unless @current_doctor = @appointment.doctor
           flash[:alert] = "You can't edit this appointment."
           redirect_to appointments_path(@appointment)
         end
@@ -104,6 +102,7 @@ class AppointmentsController < ApplicationController
           redirect_to appointments_path
         end
     end
+  end
 
   def destroy
       if @current_doctor
