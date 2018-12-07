@@ -11,29 +11,38 @@
 <body>
 
   <div class="nav-background">
-    <%= link_to "Appointments", root_path, :id => "navbar-title" %>
-  <ul>
     <% if logged_in? %>
-    <li><%= link_to "Logout", logout_path, :method => "delete"%></li>
+      <% if @current_patient %>
+        <%= link_to "Appointments", patient_path(@current_patient), :class => "navbar-title" %>
+      <% elsif  @current_doctor%>
+        <%= link_to "Appointments", patient_path(@current_doctor), :class => "navbar-title" %>
+      <% end %>
+    <% else %>
+      <%= link_to "Appointments", root_path, :class => "navbar-title" %>
     <% end %>
 
-    <% unless logged_in? || current_page?(controller: 'sessions', action:'new') || current_page?(controller: 'static', action: 'home')%>
-    <li><%= link_to "Login", login_path, :class => "navbar_button"%></li>
-    <% end %>
-  </ul>
+    <ul>
+      <% if logged_in? %>
+      <li><%= link_to "Logout", logout_path, :method => "delete", :class => "navbar-button"%></li>
+      <% end %>
 
-  <% if flash[:alert] %>
+      <% unless logged_in? || current_page?(controller: 'sessions', action:'new') || current_page?(controller: 'static', action: 'home')%>
+      <li><%= link_to "Login", login_path, :class => "navbar-button"%></li>
+      <% end %>
+    </ul>
+
+    <% if flash[:alert] %>
     <div class="alert">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
       <%= flash[:alert] %>
     </div>
     <% end %>
-  <% if flash[:notice] %>
-      <div class="notice">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <%= flash[:notice] %>
-      </div>
-      <% end %>
+    <% if flash[:notice] %>
+    <div class="notice">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
 
   </div>
   <%= yield %>
