@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :appointments do
-    resources :patients, except: :index
-    resources :doctors
-  end
+  resources :appointments
 
   resources :patients, except: :index do
     resources :appointments
