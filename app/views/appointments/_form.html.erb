@@ -1,6 +1,6 @@
 <%= f.label :date %>
 <br>
-<%= f.date_field :date %>
+<%= f.date_field :date, value: appointment.date  %>
 <br>
 <% if appointment.errors[:date].any? %>
 <p><%= appointment.errors.full_messages_for(:date)[0] %>.</p>
@@ -9,7 +9,7 @@
 
 <%= f.label :time %>
 <br>
-<%= f.time_field :time %>
+<%= f.time_field :time, value: "%r", value: appointment.time  %>
 <br>
 <% if appointment.errors[:time].any? %>
 <p><%= appointment.errors.full_messages_for(:time)[0] %>.</p>
