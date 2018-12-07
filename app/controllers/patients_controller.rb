@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
 
   def show
     if @current_patient = @patient
-      @appointments = Appointment.this_week.where("patient_id = ?", current_patient.id)
+      @appointments = Appointment.this_week.where("patient_id = ?", @current_patient.id)
     else
       if @current_doctor
         redirect_to doctor_path(@current_doctor)
