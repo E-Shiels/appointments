@@ -1,12 +1,10 @@
 class SessionsController < ApplicationController
   def new
     if logged_in?
-      doctor = Doctor.find_by_id(session[:doctor_id])
-      patient = Patient.find_by_id(session[:patient_id])
-      if doctor
-        redirect_to doctor_path(doctor)
-      elsif patient
-        redirect_to patient_path(patient)
+      if @current_doctor
+        redirect_to doctor_path(@current_doctor)
+      elsif @current_patient
+        redirect_to patient_path(@current_patient)
       end
     end
   end
@@ -33,6 +31,6 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     flash[:notice] = "You have successfully logged out."
-    redirect_to :root
+    redirect_to root_path
   end
 end
