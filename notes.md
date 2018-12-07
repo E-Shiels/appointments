@@ -26,9 +26,9 @@ Appointments today scope method and this_week scope method
 7. You must include and make use of a nested resource with the appropriate RESTful URLs. - Yes
 
 
- - You must include a nested new route with form that relates to the parent resource - doctors/:id/appointments/new
+ - You must include a nested new route with form that relates to the parent resource - doctors/:id/appointments/new - SPECIFY LOCATION
 
- -  You must include a nested index or show route - doctors/:id/appointments/:id && patients/:id/appointments/:id
+ -  You must include a nested index or show route - doctors/:id/appointments/:id && patients/:id/appointments/:id - SPECIFY LOCATION
 
 8. Your forms should correctly display validation errors.
  a. Your fields should be enclosed within a fields_with_errors class - Using initializer to do same thing
