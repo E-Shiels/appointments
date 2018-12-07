@@ -7,7 +7,7 @@ class DoctorsController < ApplicationController
   end
 
   def show
-    @appointments = Appointment.today
+    @appointments = Appointment.today.where("doctor_id = ?", current_doctor.id)
   end
 
   def new
