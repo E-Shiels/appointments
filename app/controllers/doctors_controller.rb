@@ -33,9 +33,9 @@ class DoctorsController < ApplicationController
     end
 
     if @doctor.save
-      login_doctor(doctor)
+      login_doctor(@doctor)
       flash[:notice] = "You have successfully signed up."
-      redirect_to @doctor
+      redirect_to doctor_path(@doctor)
     else
       flash.now[:alert] = "Signup failed. Doctor account couldn't be created."
       render :new
@@ -59,7 +59,7 @@ class DoctorsController < ApplicationController
       if @current_doctor == @doctor
         if @doctor.update(doctor_params)
           flash[:notice] = "Doctor details were successfully updated."
-          redirect_to @doctor
+          redirect_to doctor_path(@doctor)
         else
           flash.now[:alert] = "Doctor update failed. Fix the fields indicated by the error messages and try again."
           render :new
@@ -73,8 +73,8 @@ class DoctorsController < ApplicationController
 end
 
   def destroy
-    if current_doctor
-      if current_doctor == @doctor
+    if @current_doctor
+      if @current_doctor == @doctor
         @doctor.destroy
         reset_session
         flash[:notice] = "You have successfully deleted your account."
