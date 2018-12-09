@@ -1,33 +1,6 @@
 <h1>Appointment</h1>
 
-<table>
-
-  <tr>
-    <th>Date</th>
-    <td><%= @appointment.date %></td>
-  </tr>
-
-  <tr>
-    <th>Time</th>
-    <td><%= @appointment.time %></td>
-  </tr>
-
-  <tr>
-    <th>Patient</th>
-    <td><%= link_to @appointment.patient.name, patient_path(@appointment.patient) %></td>
-  </tr>
-
-  <tr>
-    <th>Doctor</th>
-    <td><%= link_to @appointment.doctor.name, doctor_path(@appointment.doctor) %></td>
-  </tr>
-
-  <tr>
-    <th>Description</th>
-    <td><%= @appointment.description %></td>
-  </tr>
-
-</table>
+<%= render :partial => "view", :locals => { :a => @appointment} %>
 
 <div class="margin-top-div">
 <%= link_to "View All Appointments", appointments_path, :class => "show-page-button" %>

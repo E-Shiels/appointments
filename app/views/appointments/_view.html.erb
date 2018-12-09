@@ -1,0 +1,46 @@
+<table>
+
+  <tr>
+    <th>Date</th>
+    <td><%= a.date %></td>
+  </tr>
+
+  <tr>
+    <th>Time</th>
+    <td><%= a.time %></td>
+  </tr>
+
+  <% if current_page?(appointment_path(a)) %>
+  <tr>
+    <th>Patient</th>
+    <td><%= link_to a.patient.name, patient_path(a.patient) %></td>
+  </tr>
+
+  <tr>
+    <th>Doctor</th>
+    <td><%= link_to a.doctor.name, doctor_path(a.doctor) %></td>
+  </tr>
+  <% else %>
+  <tr>
+    <th>Doctor</th>
+    <td><%= link_to a.doctor.name, doctor_path(a.doctor) %></td>
+  </tr>
+
+  <tr>
+    <th>Patient</th>
+    <td><%= link_to a.patient.name, patient_path(a.patient) %></td>
+  </tr>
+  <% end %>
+
+  <tr>
+    <th>Description</th>
+    <td><%= a.description %></td>
+  </tr>
+  </table>
+
+  <% unless current_page?(appointment_path(a)) %>
+  <div class="small-margin-top-div">
+    <%=link_to "View Full Details", appointment_path(a), :class => "show-page-button" %>
+  </div>
+  <hr>
+  <% end %>
