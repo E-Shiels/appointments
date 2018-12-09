@@ -66,7 +66,7 @@ Appointments today scope method and this_week scope method
 
 10. Finish all views. - DONE
 
-11. DRY up code.
+11. DRY up code. - WORKING
 
 12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden.
 
