@@ -44,7 +44,7 @@ class DoctorsController < ApplicationController
 
   def edit
     if @current_doctor
-      unless current_doctor == @doctor
+      unless @current_doctor == @doctor
         redirect_to doctor_path(@current_doctor)
       end
     elsif @current_patient
@@ -55,7 +55,7 @@ class DoctorsController < ApplicationController
   end
 
   def update
-    if current_doctor
+    if @current_doctor
       if @current_doctor == @doctor
         if @doctor.update(doctor_params)
           flash[:notice] = "Doctor details were successfully updated."
