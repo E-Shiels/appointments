@@ -1,16 +1,18 @@
 <h1>Login</h1>
-<%= form_for(:session, url: sessions_create_path, method: :post) do |f| %>
-  <%= f.label :email %>
-  <br>
-  <%= f.email_field :email%>
-  <br>
 
-  <%= f.label :password %>
-  <br>
-  <%= f.password_field :password%>
-  <br>
-  <%= f.submit "Log in"%>
+<%= form_for(:session, url: sessions_create_path, method: :post) do |f| %>
+<%= f.label :email %>
+<br>
+<%= f.email_field :email%>
+<br>
+
+<%= f.label :password %>
+<br>
+<%= f.password_field :password%>
+<br>
+<%= f.submit "Log in"%>
 <% end %>
+
 <p>New Doctor? <%= link_to "Sign up as a doctor!", new_doctor_path%></p>
 <p>New Patient? <%= link_to "Sign up as a patient!", new_patient_path %></p>
 
