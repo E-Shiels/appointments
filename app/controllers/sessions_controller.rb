@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     elsif request.env['omniauth.auth'].present?
       raise params.inspect
     else
-        flash.now[:alert] = "Error. Please, try again."
+        flash.now[:alert] = "No account found with that email/password combination. Try again."
         render :new
     end
   end
