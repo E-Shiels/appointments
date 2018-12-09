@@ -96,6 +96,7 @@ a.show-page-button {
   background: white;
   border-radius: 8px;
   padding: 8px;
+  cursor: pointer;
 }
 
 input.show-page-button {
@@ -107,6 +108,7 @@ input.show-page-button {
   background: white;
   border-radius: 8px;
   padding: 8px;
+  cursor: pointer;
 }
 
 input.error {
