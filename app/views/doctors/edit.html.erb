@@ -1,75 +1,12 @@
 <h1>Edit Your Personal Details</h1>
 <h2>All fields are required. </h2>
 <%= form_for @doctor do |f| %>
-<%= f.label :name %>
-<br>
-<%= f.text_field :name %>
-<br>
-<% if @doctor.errors[:name].any? %>
-<p><%= @doctor.errors.full_messages_for(:name)[0] %>.</p>
-<br>
-<% end %>
 
-<%= f.label :gender %>
-<br>
-<%= f.label :gender, 'M', :value => 'M' , :class => "small-label" %>
-<%= f.radio_button :gender, 'M' %>
-<%= f.label :gender, 'F', :value => 'F' , :class => "small-label" %>
-<%= f.radio_button :gender, 'F' %>
-<br>
-<% if @doctor.errors[:gender].any? %>
-<p><%= @doctor.errors.full_messages_for(:gender)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :specialty %>
-<br>
-<%= f.text_field :specialty %>
-<br>
-<% if @doctor.errors[:specialty].any? %>
-<p><%= @doctor.errors.full_messages_for(:specialty)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :practice_name %>
-<br>
-<%= f.text_field :practice_name %>
-<br>
-<% if @doctor.errors[:practice_name].any? %>
-<p><%= @doctor.errors.full_messages_for(:practice_name)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :practice_location %>
-<br>
-<%= f.text_field :practice_location %>
-<br>
-<% if @doctor.errors[:practice_location].any? %>
-<p><%= @doctor.errors.full_messages_for(:practice_location)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :phone %>
-<br>
-<%= f.telephone_field :phone %>
-<br>
-<% if @doctor.errors[:phone].any? %>
-<p><%= @doctor.errors.full_messages_for(:phone)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :email %>
-<br>
-<%= f.email_field :email %>
-<br>
-<% if @doctor.errors[:email].any? %>
-<p><%= @doctor.errors.full_messages_for(:email)[0] %>.</p>
-<br>
-<% end %>
-
+<%= render :partial => "form", :locals => { :doctor => @doctor, :f => f} %>
 
 <%= f.button "Update Doctor Details", data: { confirm: 'Are you sure you want to save changes to your details?'}%>
 <% end %>
+
 <div class = "margin-top-div">
   <%= link_to "Cancel", doctor_path(@doctor), data: { confirm: 'Are you sure you want to discard any changes to your details?'}, :class => "show-page-button" %>
 </div>

@@ -27,14 +27,17 @@
   <%= button_to "Delete Your Account", doctor_path(@doctor), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, :class => "show-page-button" %>
 </div>
 <% end %>
+
 <% if @doctor == current_doctor %>
 <h2>Today's Appointments</h2>
 <hr>
+
 <% @appointments.each do |a| %>
 
 <%= render :partial => "appointments/view", :locals => { :a => a} %>
 
 <% end %>
 <% end %>
+
 <div class='space-bottom-div'>
 </div>
