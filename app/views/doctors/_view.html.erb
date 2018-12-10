@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <td><%= d.name %> </td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td><%= d.gender %></td>
+  </tr>
+  <tr>
+    <th>Specialty</th>
+    <td><%= d.specialty %></td>
+  </tr>
+  <tr>
+    <th>Practice Name</th>
+    <td><%= d.practice_name %></td>
+  </tr>
+  <tr>
+    <th>Practice Location</th>
+    <td><%= d.practice_location %></td>
+  </tr>
+  <% if current_page?(doctor_path(d)) %>
+  <tr>
+    <th>Phone Number</th>
+    <td><%= d.phone %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td> <%= d.email %></td>
+  </tr>
+  <% end %>
+</table>
