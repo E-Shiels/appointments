@@ -1,62 +1,8 @@
 <h1>Edit your personal details</h1>
 <h2>All fields are required. </h2>
 <%= form_for @patient do |f| %>
-<%= f.label :name %>
-<br>
-<%= f.text_field :name %>
-<br>
-<% if @patient.errors[:name].any? %>
-<p><%= @patient.errors.full_messages_for(:name)[0] %>.</p>
-<br>
-<% end %>
 
-<%= f.label :gender %>
-<br>
-<%= f.label :gender, 'M', :value => 'M' , :class => "small-label" %>
-<%= f.radio_button :gender, 'M' %>
-<%= f.label :gender, 'F', :value => 'F' , :class => "small-label" %>
-<%= f.radio_button :gender, 'F' %>
-<br>
-<% if @patient.errors[:gender].any? %>
-<p><%= @patient.errors.full_messages_for(:gender)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :age %>
-<br>
-<%= f.text_field :age %>
-<br>
-<% if @patient.errors[:age].any? %>
-<p><%= @patient.errors.full_messages_for(:age)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :address %>
-<br>
-<%= f.text_field :address %>
-<br>
-<% if @patient.errors[:address].any? %>
-<p><%= @patient.errors.full_messages_for(:address)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :phone %>
-<br>
-<%= f.telephone_field :phone %>
-<br>
-<% if @patient.errors[:phone].any? %>
-<p><%= @patient.errors.full_messages_for(:phone)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :email %>
-<br>
-<%= f.email_field :email %>
-<br>
-<% if @patient.errors[:email].any? %>
-<p><%= @patient.errors.full_messages_for(:email)[0] %>.</p>
-<br>
-<% end %>
+<%= render :partial => "form", :locals => { :patient => @patient, :f => f} %>
 
 <%= f.button "Update patient", data: { confirm: 'Are you sure you want to save changes to your details?'}%>
 <% end %>
