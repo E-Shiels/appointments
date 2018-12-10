@@ -20,6 +20,11 @@
     <th>Doctor</th>
     <td><%= link_to a.doctor.name, doctor_path(a.doctor) %></td>
   </tr>
+  <% elsif current_page?(doctor_path(a.doctor)) %>
+  <tr>
+    <th>Patient</th>
+    <td><%= link_to a.patient.name, patient_path(a.patient) %></td>
+  </tr>
   <% else %>
   <tr>
     <th>Doctor</th>
