@@ -1,30 +1,11 @@
 <h1>All Doctors</h1>
 
 <% @doctors.each do |d| %>
-<table>
-  <tr>
-    <th>Name</th>
-    <td><%= d.name %> </td>
-  </tr>
-  <tr>
-    <th>Gender</th>
-    <td><%= d.gender %></td>
-  </tr>
-  <tr>
-    <th>Specialty</th>
-    <td><%= d.specialty %></td>
-  </tr>
-  <tr>
-    <th>Practice Name</th>
-    <td><%= d.practice_name %></td>
-  </tr>
-  <tr>
-    <th>Practice Location</th>
-    <td><%= d.practice_location %></td>
-  </tr>
-</table>
+
+<%= render :partial => "view", :locals => { :d => d} %>
+
 <div class="small-margin-top-div">
-<%=link_to "View Full Details", doctor_path(d), :class => "show-page-button" %>
+  <%=link_to "View Full Details", doctor_path(d), :class => "show-page-button" %>
 </div>
 <hr>
 <% end %>

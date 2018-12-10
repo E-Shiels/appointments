@@ -1,87 +1,40 @@
 <% if @doctor == current_doctor %>
-  <h1>Your Details</h1>
+<h1>Your Details</h1>
 <% else %>
-  <h1>Doctor View</h1>
+<h1>Doctor View</h1>
 <% end %>
-<table>
-  <tr>
-    <th>Name</th>
-    <td><%= @doctor.name %> </td>
-  </tr>
-  <tr>
-    <th>Gender</th>
-    <td><%= @doctor.gender %></td>
-  </tr>
-  <tr>
-    <th>Specialty</th>
-    <td><%= @doctor.specialty %></td>
-  </tr>
-  <tr>
-    <th>Practice Name</th>
-    <td><%= @doctor.practice_name %></td>
-  </tr>
-  <tr>
-    <th>Practice Location</th>
-    <td><%= @doctor.practice_location %></td>
-  </tr>
-  <tr>
-    <th>Phone Number</th>
-    <td><%= @doctor.phone %></td>
-  </tr>
-  <tr>
-    <th>Email</th>
-    <td> <%= @doctor.email %></td>
-  </tr>
-</table>
+
+<%= render :partial => "view", :locals => { :d => @doctor} %>
 
 <div class="margin-top-div">
-<% if @doctor == current_doctor %>
+  <% if @doctor == current_doctor %>
   <%= link_to "View Appointments", doctor_appointments_path(@doctor), :class => "show-page-button" %>
-<% end %>
+  <% end %>
 </div>
 <div class="margin-top-div">
-<% if @doctor == current_doctor %>
+  <% if @doctor == current_doctor %>
   <%= link_to "New Appointment", new_doctor_appointment_path(@doctor), :class => "show-page-button" %>
-<% end %>
+  <% end %>
 </div>
 <div class="margin-top-div">
-<%= link_to "View All Doctors", doctors_path, :class => "show-page-button"%>
+  <%= link_to "View All Doctors", doctors_path, :class => "show-page-button"%>
 </div>
 <% if @doctor == current_doctor %>
 <div class="margin-top-div">
-<%= link_to "Edit Doctor Details", edit_doctor_path, :class => "show-page-button" %>
+  <%= link_to "Edit Doctor Details", edit_doctor_path, :class => "show-page-button" %>
 </div>
 <div class="margin-top-div">
-<%= button_to "Delete Your Account", doctor_path(@doctor), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, :class => "show-page-button" %>
+  <%= button_to "Delete Your Account", doctor_path(@doctor), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, :class => "show-page-button" %>
 </div>
 <% end %>
 <% if @doctor == current_doctor %>
 <h2>Today's Appointments</h2>
 <hr>
 <% @appointments.each do |a| %>
-<table>
-  <tr>
-    <th>Date</th>
-    <td><%= a.date %></td>
-  </tr>
-  <tr>
-    <th>Time</th>
-    <td><%= a.time %></td>
-  </tr>
-  <tr>
-    <th>Patient</th>
-    <td><%= link_to a.patient.name, patient_path(a.patient) %></td>
-  </tr>
-  <tr>
-    <th>Description</th>
-    <td><%= a.description %></td>
-  </tr>
-  </table>
-  <div class="small-margin-top-div">
-  <%=link_to "View Full Details", doctor_appointment_path(@doctor, a), :class => "show-page-button" %>
-  </div>
-  <hr>
-  <% end %>
-  <% end %>
-  <div class='space-bottom-div'>
-  </div>
+
+<%= render :partial => "appointments/view", :locals => { :a => a} %>
+
+<% end %>
+<% end %>
+<div class='space-bottom-div'>
+</div>
