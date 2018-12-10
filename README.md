@@ -3,7 +3,7 @@ Appointments is a Ruby on Rails project that allows Doctors and Patients to crea
 ## Installation ##
 First, click on the green Clone or download button, ensure that it says Clone with SSH, and press the copy icon next to the displayed URL. Then, type git clone and paste the copied URL into your terminal and hit enter. Next, type bundle install in the terminal. Finally, type rails server in the terminal and navigate to the site (usually http://localhost:3000). 
 ## Contributing ##
-Bug reports and pull requests are welcome on GitHub at https://github.com/'E-Shiels'/appointments. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/E-Shiels/appointments. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 ## License ##
 The application is available as open source under the terms of the MIT License.
 ## Code of Conduct ##
