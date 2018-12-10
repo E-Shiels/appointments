@@ -25,6 +25,11 @@
     <th>Patient</th>
     <td><%= link_to a.patient.name, patient_path(a.patient) %></td>
   </tr>
+  <% elsif current_page?(patient_path(a.patient)) %>
+  <tr>
+    <th>Doctor</th>
+    <td><%= link_to a.doctor.name, doctor_path(a.doctor) %></td>
+  </tr>
   <% else %>
   <tr>
     <th>Doctor</th>
@@ -41,11 +46,11 @@
     <th>Description</th>
     <td><%= a.description %></td>
   </tr>
-  </table>
+</table>
 
-  <% unless current_page?(appointment_path(a)) %>
-  <div class="small-margin-top-div">
-    <%=link_to "View Full Details", appointment_path(a), :class => "show-page-button" %>
-  </div>
-  <hr>
-  <% end %>
+<% unless current_page?(appointment_path(a)) %>
+<div class="small-margin-top-div">
+  <%=link_to "View Full Details", appointment_path(a), :class => "show-page-button" %>
+</div>
+<hr>
+<% end %>
