@@ -1,4 +1,6 @@
 class Doctor < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   # RELATIONSHIPS
   has_many :appointments
@@ -19,5 +21,5 @@ class Doctor < ApplicationRecord
   validates :email, presence: true
   validates :email, 'valid_email_2/email': { mx: true, disposable: true}
   validates :email, uniqueness: true
-  
+
 end
