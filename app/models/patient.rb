@@ -1,4 +1,6 @@
 class Patient < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   # RELATIONSHIPS
   has_many :appointments

@@ -97,7 +97,7 @@ class PatientsController < ApplicationController
   end
 
   def find_patient_from_params
-    @patient = Patient.find(params[:id])
+    @patient = Patient.friendly.find(params[:id])
   end
 
 end

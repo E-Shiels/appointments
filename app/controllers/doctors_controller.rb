@@ -97,7 +97,7 @@ end
   end
 
   def find_doctor_from_params
-    @doctor = Doctor.find(params[:id])
+    @doctor = Doctor.friendly.find(params[:id])
   end
 
 end
