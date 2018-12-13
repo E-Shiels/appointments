@@ -16,7 +16,7 @@ Doctor.create(name: "Frederick Murphy", gender: "M", specialty: "Cardiology", pr
 Doctor.create(name: "Julia Rondeau", gender: "F", specialty: "Epidemiology", practice_name: "The Hospital of Medicine", practice_location: "890 Medical Promenade", phone: "9442323156", email: "tester@emails.com", password: "secret")
 Doctor.create(name: "Michelle Roper", gender: "F", specialty: "Cardiothoracic Surgery", practice_name: "Beating Heart Medicine", practice_location: "123 Heart Road", phone: "8677675933", email: "michelle@michelleroper.com", password: "wordsgohere")
 
-Appointment.create(doctor_id: 6, patient_id: 5, description: "test", date: "Tomorrow", time: "2:09 AM")
-Appointment.create(doctor_id: 7, patient_id: 6, description: "test", date: "Tomorrow", time: "2:09 AM")
-Appointment.create(doctor_id: 8, patient_id: 7, description: "test", date: "Tomorrow", time: "2:09 AM")
-Appointment.create(doctor_id: 9, patient_id: 8, description: "test", date: "Tomorrow", time: "2:09 AM")
+Appointment.create(doctor_id: 1, patient_id: 2, description: "test 1", date: "2018-12-14", time: "12:09 AM")
+Appointment.create(doctor_id: 2, patient_id: 3, description: "test 2", date: "2019-01-15", time: "2:09 PM")
+Appointment.create(doctor_id: 3, patient_id: 4, description: "test 3", date: "2019-02-16", time: "2:09 AM")
+Appointment.create(doctor_id: 4, patient_id: 1, description: "test 4", date: "2019-03-17", time: "12:09 PM")
