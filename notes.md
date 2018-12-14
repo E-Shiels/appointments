@@ -58,7 +58,7 @@ Appointments today scope method and this_week scope method
 
 6. Build out sessions and controller. - DONE
 
-7. Add authentication and authorization. - Authorization mostly done, 3rd party authentication cant be done right now.
+7. Add authentication and authorization. - Authorization mostly done, 3rd party authentication WORKING ON
 
 8. Finish all controller methods. - DONE
 
@@ -68,6 +68,6 @@ Appointments today scope method and this_week scope method
 
 11. DRY up code. - DONE
 
-12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden. - WORKING
+12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden. - WORKING ON
 
 13. Add more features, such as friendly_id, address validation using jt-rails-address or mainstreet.
