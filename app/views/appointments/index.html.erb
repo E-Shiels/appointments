@@ -9,5 +9,9 @@
 <%= render :partial => "view", :locals => { :a => a} %>
 
 <% end %>
+
+<% if !@appointments.any? %>
+  <p>You have no appointments.</p>
+<% end %>
 <div class='space-bottom-div'>
 </div>
