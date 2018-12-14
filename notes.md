@@ -70,4 +70,4 @@ Appointments today scope method and this_week scope method
 
 12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden. - WORKING ON
 
-13. Add more features, such as friendly_id, address validation using jt-rails-address or mainstreet.
+13. Add more features, such as friendly_id, address validation using jt-rails-address or mainstreet. - WORKING
