@@ -28,7 +28,7 @@
 </div>
 <% end %>
 
-<% if @doctor == current_doctor %>
+<% if @doctor == current_doctor && @appointments.any? %>
 <h2>Today's Appointments</h2>
 <hr>
 
