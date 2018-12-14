@@ -10,8 +10,6 @@ class Doctor < ApplicationRecord
   # VALIDATIONS
   validates :name, presence: true
 
-  validates :phone, numericality: true, allow_nil: :true
-
   validates :email, presence: true
   validates :email, 'valid_email_2/email': { mx: true, disposable: true}
   validates :email, uniqueness: true
