@@ -20,19 +20,21 @@ class SessionsController < ApplicationController
         elsif patient && patient.authenticate(params[:session][:password])
           login_patient(patient)
           redirect_to patient_path(patient)
+        else
+          flash.now[:alert] = "No account found with that email/password combination. Try again."
+          render :new
         end
       end
-      elsif request.env['omniauth.auth'].present?
-        raise params.inspect
-      else
-        flash.now[:alert] = "No account found with that email/password combination. Try again."
-        render :new
-      end
-    end
-
-    def destroy
-      reset_session
-      flash[:notice] = "You have successfully logged out."
-      redirect_to root_path
+    elsif request.env['omniauth.auth'].present?
+      doctor = Doctor.login_with_omniauth(request.env["omniauth.auth"])
+      login_doctor(doctor)
+      redirect_to edit_doctor_path(doctor)
     end
   end
+
+  def destroy
+    reset_session
+    flash[:notice] = "You have successfully logged out."
+    redirect_to root_path
+  end
+end
