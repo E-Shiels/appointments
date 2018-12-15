@@ -21,20 +21,20 @@ Appointments today scope method and this_week scope method
 
 5. Your application must provide standard user authentication, including signup, login, logout, and passwords. - Yes
 
-6. Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc... - Waiting until the end
+6. Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc... - Yes
 
 7. You must include and make use of a nested resource with the appropriate RESTful URLs. - Yes
 
 
- - You must include a nested new route with form that relates to the parent resource - doctors/:id/appointments/new - SPECIFY LOCATION
+ - You must include a nested new route with form that relates to the parent resource - doctors/:id/appointments/new
 
- -  You must include a nested index or show route - doctors/:id/appointments/:id && patients/:id/appointments/:id - SPECIFY LOCATION
+ -  You must include a nested index or show route - doctors/:id/appointments/:id && patients/:id/appointments/:id
 
 8. Your forms should correctly display validation errors.
  a. Your fields should be enclosed within a fields_with_errors class - Using initializer to do same thing
  b. Error messages describing the validation failures must be present within the view. - Yes
 
-9. Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. - Working
+9. Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. - Yes
 
  - Logic present in your controllers should be encapsulated as methods in your models.
 
@@ -58,16 +58,16 @@ Appointments today scope method and this_week scope method
 
 6. Build out sessions and controller. - DONE
 
-7. Add authentication and authorization. - Authorization mostly done, 3rd party authentication WORKING ON
+7. Add authentication and authorization. - Authorization mostly done, 3rd party authentication - DONE
 
 8. Finish all controller methods. - DONE
 
-9. Build website template. - DONE/WORKING
+9. Build website template. - DONE
 
 10. Finish all views. - DONE
 
 11. DRY up code. - DONE
 
-12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden. - WORKING ON
+12. Ensure README is finished and unnecessary code is removed, and ENV keys are hidden. - DONE
 
 13. Add more features, such as friendly_id, address validation using jt-rails-address or mainstreet. - WORKING
