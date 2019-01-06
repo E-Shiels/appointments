@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  root 'static#home'
+
+
   resources :appointments
 
   resources :patients, except: :index do
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
     resources :appointments
   end
 
+
   get '/login' => 'sessions#new'
   post '/sessions/create' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
@@ -19,6 +23,5 @@ Rails.application.routes.draw do
   get '/auth/github/callback' => 'sessions#create'
   get 'auth/failure' => 'sessions#new'
 
-  root 'static#home'
 
 end
