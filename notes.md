@@ -11,7 +11,7 @@
 	Appointment belongs to Patient and belongs to Doctor
 
 
- - Include a many-to-many relationship implemented with has many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
+ - Include a many-to-many relationship implemented with has many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user - Yes
 
 
 3. Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data. -Yes
