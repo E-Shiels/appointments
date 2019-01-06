@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new
     if logged_in?
       if @current_doctor
@@ -37,4 +38,5 @@ class SessionsController < ApplicationController
     flash[:notice] = "You have successfully logged out."
     redirect_to root_path
   end
+
 end

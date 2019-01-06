@@ -27,17 +27,17 @@ class ApplicationController < ActionController::Base
       false
     end
   end
-    helper_method :logged_in?
+  helper_method :logged_in?
 
 
   def current_doctor
     @current_doctor ||= Doctor.find(session[:doctor_id]) if session[:doctor_id].present?
   end
-    helper_method :current_doctor
+  helper_method :current_doctor
 
   def current_patient
     @current_patient ||= Patient.find(session[:patient_id]) if session[:patient_id].present?
   end
-    helper_method :current_patient
+  helper_method :current_patient
 
 end

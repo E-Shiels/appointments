@@ -125,4 +125,5 @@ class AppointmentsController < ApplicationController
   def find_appointment_from_params
       @appointment = Appointment.find(params[:id])
   end
+  
 end
