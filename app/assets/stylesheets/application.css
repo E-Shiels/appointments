@@ -210,6 +210,14 @@ hr {
   margin-top: 15px;
 }
 
+hr.about {
+  width: 80%;
+  height: 5px;
+  background-color: white;
+  border-radius: 1px;
+  border-color: white;
+}
+
 div.nav-background {
   position: fixed;
   left: 0;
@@ -254,6 +262,10 @@ footer {
   background-color: rgb(14,34,113);
   color: white;
   text-align: center;
+}
+footer p {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
 }
 
 ul {
