@@ -328,3 +328,8 @@ li a {
   font-weight: bold;
   color: white;
 }
+
+form p {
+  margin: 0;
+  margin-left: 8px;
+}
