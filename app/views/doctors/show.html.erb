@@ -37,6 +37,8 @@
 <%= render :partial => "appointments/view", :locals => { :a => a} %>
 
 <% end %>
+<% elsif @doctor == current_doctor %>
+<h2>You Have No Appointments Today</h2>
 <% end %>
 
 <div class='space-bottom-div'>

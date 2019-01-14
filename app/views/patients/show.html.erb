@@ -44,6 +44,7 @@
   <%= button_to "Delete your account", patient_path(@patient), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, :class => "show-page-button" %>
 </div>
 <% end %>
+
 <% if @patient == @current_patient && Appointment.this_week.where("patient_id = ?", @patient.id).any? %>
 <h2>Appointments In The Next 7 Days</h2>
 <hr>
@@ -52,6 +53,9 @@
 <%= render :partial => "appointments/view", :locals => { :a => a} %>
 
 <% end %>
+<% elsif @patient == current_patient %>
+<h2>You Have No Appointments This Week</h2>
 <% end %>
+
 <div class='space-bottom-div'>
 </div>
