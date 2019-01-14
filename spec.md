@@ -11,7 +11,7 @@ Specs:
 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (appointment time, date, description)
 - [x] Include reasonable validations for simple model objects (all models have some validations)
-- [x] Include a class level ActiveRecord scope method (appointment.today and appointment.this_week - /doctors/{doctor name goes here})
+- [x] Include a class level ActiveRecord scope method (appointment.today and appointment.this_week - /doctors/{doctor name goes here} or /patients/{patient name goes here}   at the bottom of the page)
 - [x] Include signup
 - [x] Include login
 - [x] Include logout (clear session - logout button)
