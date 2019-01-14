@@ -7,7 +7,7 @@ Specs:
 - [x] Include at least one belongs_to relationship (Appointment belongs_to Patient and Doctor)
 - [x] Include at least two has_many through relationships (Doctor has many patients through appointments and vice versa)
 
-- [ ] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
+- [x] Include at least one many-to-many relationship (Doctor has many patients through appointments, patient has many doctors through appointments)
 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (appointment time, date, description)
 - [x] Include reasonable validations for simple model objects (all models have some validations)
