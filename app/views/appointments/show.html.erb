@@ -5,9 +5,11 @@
 <div class="margin-top-div">
 <%= link_to "View All Appointments", appointments_path, :class => "show-page-button" %>
 </div>
+<%if @current_doctor %>
 <div class="margin-top-div">
 <%= link_to "Edit Appointment", edit_appointment_path(@appointment), :class => "show-page-button" %>
 </div>
 <div class="margin-top-div">
 <%= button_to "Delete Appointment", appointment_path(@appointment), method: "delete", data: { confirm: 'Are you sure you want to delete this appointment?'}, :class => "show-page-button" %>
 </div>
+<% end %>
