@@ -26,7 +26,7 @@
     <% if @current_patient %>
     <%= link_to "Appointments", patient_path(@current_patient), :class => "navbar-title" %>
     <% elsif  @current_doctor%>
-    <%= link_to "Appointments", patient_path(@current_doctor), :class => "navbar-title" %>
+    <%= link_to "Appointments", doctor_path(@current_doctor), :class => "navbar-title" %>
     <% end %>
     <% else %>
     <%= link_to "Appointments", root_path, :class => "navbar-title" %>
