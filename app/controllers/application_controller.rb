@@ -40,4 +40,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_patient
 
+  def simple_redirect
+    if @current_doctor
+      redirect_to doctor_path(@current_doctor)
+    elsif @current_patient
+      redirect_to patient_path(@current_patient)
+    end
+  end
+
 end

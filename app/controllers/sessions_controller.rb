@@ -2,11 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     if logged_in?
-      if @current_doctor
-        redirect_to doctor_path(@current_doctor)
-      elsif @current_patient
-        redirect_to patient_path(@current_patient)
-      end
+      simple_redirect
     end
   end
 
