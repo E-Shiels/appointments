@@ -3,31 +3,31 @@ class AppointmentsController < ApplicationController
   before_action :find_appointment_from_params, except: [:index, :new, :create]
 
   def index
-      if @current_patient
-        @appointments = Appointment.where("patient_id = ?", @current_patient.id)
-      elsif @current_doctor
-        @appointments = Appointment.where("doctor_id = ?", @current_doctor.id)
-      else
-        flash[:alert] = "You can't view appointments becuase you aren't logged in."
-        redirect_to root_path
+    if @current_patient
+      @appointments = Appointment.where("patient_id = ?", @current_patient.id)
+    elsif @current_doctor
+      @appointments = Appointment.where("doctor_id = ?", @current_doctor.id)
+    else
+      flash[:alert] = "You can't view appointments because you aren't logged in."
+      redirect_to root_path
     end
   end
 
   def show
-      if @current_patient
-        unless @current_patient = @appointment.patient
-          flash[:alert] = "You can't view this appointment."
-          redirect_to appointments_path
-        end
-      elsif @current_doctor
-        unless @current_doctor = @appointment.doctor
-          flash[:alert] = "You can't view this appointment."
-          redirect_to appointments_path
-        end
-      else
-        flash[:alert] = "You can't view appointments becuase you aren't logged in."
-        redirect_to root_path
+    if @current_patient
+      unless @current_patient = @appointment.patient
+        flash[:alert] = "You can't view this appointment."
+        redirect_to appointments_path
       end
+    elsif @current_doctor
+      unless @current_doctor = @appointment.doctor
+        flash[:alert] = "You can't view this appointment."
+        redirect_to appointments_path
+      end
+    else
+      flash[:alert] = "You can't view appointments because you aren't logged in."
+      redirect_to root_path
+    end
   end
 
   def new
@@ -44,78 +44,78 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
-      if @current_doctor
-        if @appointment.save
-          @appointment.date = Date.parse(params[:appointment][:date]) unless Date.parse(params[:appointment][:date]).nil?
-          @appointment.save
-          flash[:notice] = "Appointment sucessfully created"
-          redirect_to appointment_path(@appointment)
-        else
-          flash.now[:alert] = "Appointment creation failed"
-          render :new
-        end
+    if @current_doctor
+      if @appointment.save
+        @appointment.date = Date.parse(params[:appointment][:date]) unless Date.parse(params[:appointment][:date]).nil?
+        @appointment.save
+        flash[:notice] = "Appointment sucessfully created"
+        redirect_to appointment_path(@appointment)
       else
-        flash[:alert] = "You can't create an appointment."
-        redirect_to patient_path(@current_patient)
+        flash.now[:alert] = "Appointment creation failed"
+        render :new
       end
+    else
+      flash[:alert] = "You can't create an appointment."
+      redirect_to patient_path(@current_patient)
     end
+  end
 
   def edit
-      if @current_doctor
-        unless @current_doctor = @appointment.doctor
-          flash[:alert] = "You can't edit this appointment."
-          redirect_to appointments_path(@appointment)
-        end
-      elsif @current_patient
-        unless @curent_patient = @appointment.patient
-          flash[:alert] = "You can't edit thiss appointment."
-          redirect_to appointments_path
-        end
+    if @current_doctor
+      unless @current_doctor = @appointment.doctor
+        flash[:alert] = "You can't edit this appointment."
+        redirect_to appointments_path(@appointment)
       end
+    elsif @current_patient
+      unless @curent_patient = @appointment.patient
+        flash[:alert] = "You can't edit thiss appointment."
+        redirect_to appointments_path
+      end
+    end
   end
 
   def update
-      if @current_patient
-        if @current_patient = @appointment.patient
-          if @appointment.update(appointment_params)
-            flash[:notice] = "Appointment sucessfully updated"
-            redirect_to appointment_path(@appointment)
-          else
-            flash.now[:alert] = "Appointment update failed"
-            render :edit
-          end
+    if @current_patient
+      if @current_patient = @appointment.patient
+        if @appointment.update(appointment_params)
+          flash[:notice] = "Appointment sucessfully updated"
+          redirect_to appointment_path(@appointment)
         else
-          flash[:alert] = "You can't edit this appointment."
-          redirect_to appointments_path
+          flash.now[:alert] = "Appointment update failed."
+          render :edit
         end
-      elsif @current_doctor
-        if @current_doctor = @appointment.doctor
-          if @appointment.update(appointment_params)
-            flash[:notice] = "Appointment sucessfully updated"
-            redirect_to appointment_path(@appointment)
-          else
-            flash.now[:alert] = "Appointment update failed"
-            render :edit
-          end
+      else
+        flash[:alert] = "You can't edit this appointment."
+        redirect_to appointments_path
+      end
+    elsif @current_doctor
+      if @current_doctor = @appointment.doctor
+        if @appointment.update(appointment_params)
+          flash[:notice] = "Appointment sucessfully updated"
+          redirect_to appointment_path(@appointment)
         else
-          flash[:alert] = "You can't edit this appointment."
-          redirect_to appointments_path
+          flash.now[:alert] = "Appointment update failed."
+          render :edit
         end
+      else
+        flash[:alert] = "You can't edit this appointment."
+        redirect_to appointments_path
+      end
     end
   end
 
   def destroy
-      if @current_doctor
-        if @current_doctor = @appointment.doctor
-          @appointment.destroy
-          flash[:notice] = "Appointment sucessfully cancelled"
-          redirect_to appointments_path
-        else
-          flash[:alert] = "You can't cancel this appointment."
-          redirect_to appointments_path
-        end
+    if @current_doctor
+      if @current_doctor = @appointment.doctor
+        @appointment.destroy
+        flash[:notice] = "Appointment sucessfully cancelled."
+        redirect_to appointments_path
+      else
+        flash[:alert] = "You can't cancel this appointment."
+        redirect_to appointments_path
       end
     end
+  end
 
   private
   def appointment_params
@@ -123,7 +123,7 @@ class AppointmentsController < ApplicationController
   end
 
   def find_appointment_from_params
-      @appointment = Appointment.find(params[:id])
+    @appointment = Appointment.find(params[:id])
   end
-  
+
 end
