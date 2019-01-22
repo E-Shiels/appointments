@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :current_doctor
-  before_action :current_patient
+  before_action :current_doctor, :current_patient
+  helper_method :logged_in?, :current_doctor, :current_patient
 
   def login_doctor(doctor)
     session[:doctor_id] = doctor.id
@@ -27,18 +27,14 @@ class ApplicationController < ActionController::Base
       false
     end
   end
-  helper_method :logged_in?
-
 
   def current_doctor
     @current_doctor ||= Doctor.find(session[:doctor_id]) if session[:doctor_id].present?
   end
-  helper_method :current_doctor
 
   def current_patient
     @current_patient ||= Patient.find(session[:patient_id]) if session[:patient_id].present?
   end
-  helper_method :current_patient
 
   def simple_redirect
     if @current_doctor
