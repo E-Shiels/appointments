@@ -8,20 +8,20 @@ class DoctorsController < ApplicationController
 
   def show
     if @current_doctor
-    @appointments = Appointment.today.where("doctor_id = ?", current_doctor.id)
+      @appointments = Appointment.today.where("doctor_id = ?", current_doctor.id)
     else
       @appointments = nil
     end
   end
 
   def new
-      if @current_doctor
-        flash[:alert] = "You already have an account."
-        redirect_to doctor_path(@current_doctor)
-      elsif @current_patient
-        flash[:alert] = "You can't create a Doctor account."
-        redirect_to patient_path(@current_patient)
-      end
+    if @current_doctor
+      flash[:alert] = "You already have an account."
+      redirect_to doctor_path(@current_doctor)
+    elsif @current_patient
+      flash[:alert] = "You can't create a Doctor account."
+      redirect_to patient_path(@current_patient)
+    end
     @doctor = Doctor.new
   end
 
@@ -73,8 +73,8 @@ class DoctorsController < ApplicationController
       end
     else
       flash[:alert] = "You can't edit a Doctors details."
+    end
   end
-end
 
   def destroy
     if @current_doctor
@@ -90,7 +90,7 @@ end
       flash[:alert] = "You can't delete a Doctor."
     end
   end
-
+  
   private
   def doctor_params
     params.require(:doctor).permit(:name, :gender, :specialty, :practice_name, :practice_location, :phone, :email, :password)
