@@ -4,9 +4,9 @@ class AppointmentsController < ApplicationController
 
   def index
     if @current_patient
-      @appointments = Appointment.where("patient_id = ?", @current_patient.id)
+      @appointments = @current_patient.appointments
     elsif @current_doctor
-      @appointments = Appointment.where("doctor_id = ?", @current_doctor.id)
+      @appointments = @current_doctor.appointments
     else
       flash[:alert] = "You can't view appointments because you aren't logged in."
       redirect_to root_path
