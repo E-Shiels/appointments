@@ -1,4 +1,5 @@
 class Doctor < ApplicationRecord
+
   #FRIENDLY ID
   extend FriendlyId
   friendly_id :name, use: :slugged

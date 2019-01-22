@@ -11,7 +11,7 @@ class Appointment < ApplicationRecord
   # VALIDATIONS
   validates :doctor_id, presence: true
   validates :doctor_id, numericality: true
-
+  
   validates :patient_id, presence: true
   validates :patient_id, numericality: true
 
