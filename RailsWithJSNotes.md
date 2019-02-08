@@ -1,10 +1,10 @@
-1. Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization JSON Backend.
+1. Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization JSON Backend. - appointments on a doctor show page
 
-2. Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model Serialization JSON Backend.
+2. Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model Serialization JSON Backend. - go through all doctors with a next button
 
-3. Your Rails application must dynamically render on the page at least one 'has-many' relationship through JSON using JavaScript.
+3. Your Rails application must dynamically render on the page at least one 'has-many' relationship through JSON using JavaScript. - list all of a patients doctors names on patient show page
 
-4. Must use your Rails application and JavaScript to render a form for creating a resource that submits dynamically.
+4. Must use your Rails application and JavaScript to render a form for creating a resource that submits dynamically. - a "quick create appointment" form on the doctor show page
 
 5. Must translate the JSON responses into JavaScript Model Objects using either ES6 class or constructor syntax. The Model Objects must have at least one method on the prototype. Formatters work really well for this.
 
