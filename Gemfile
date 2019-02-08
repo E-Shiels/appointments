@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'active_model_serializers'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
@@ -48,6 +49,8 @@ gem 'jbuilder', '~> 2.5'
  gem 'omniauth-github'
 
  gem 'friendly_id', '~> 5.2.4'
+
+ gem 'jquery-rails'
 
 #gem 'openssl', git: 'https://github.com/ruby/openssl'
 # Use Capistrano for deployment
