@@ -1,3 +1,8 @@
+<<script type="text/javascript">
+  $(function() {
+    $('#doctor-appointments-section').append('BYE')
+  });
+</script>
 <% if @doctor == current_doctor %>
 <h1>Your Details</h1>
 <% else %>
@@ -40,6 +45,11 @@
 <% elsif @doctor == current_doctor %>
 <h2>You Have No Appointments Today</h2>
 <% end %>
+
+
+<div id="doctor-appointments-section">
+  <h1>HELLO</h1>
+  </div>
 
 <div class='space-bottom-div'>
 </div>
