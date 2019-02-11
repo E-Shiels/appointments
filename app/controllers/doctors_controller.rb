@@ -90,7 +90,7 @@ class DoctorsController < ApplicationController
       flash[:alert] = "You can't delete a Doctor."
     end
   end
-  
+
   private
   def doctor_params
     params.require(:doctor).permit(:name, :gender, :specialty, :practice_name, :practice_location, :phone, :email, :password)
