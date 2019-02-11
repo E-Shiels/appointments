@@ -7,6 +7,10 @@ class AppointmentsController < ApplicationController
       @appointments = @current_patient.appointments
     elsif @current_doctor
       @appointments = @current_doctor.appointments
+      respond_to do |format|
+        format.html {render 'index.html'}
+        format.json {render json: @appointments}
+      end
     else
       flash[:alert] = "You can't view appointments because you aren't logged in."
       redirect_to root_path
