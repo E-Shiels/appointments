@@ -9,5 +9,12 @@ class Appointment {
 }
 
 $(function() {
+  $.get( "/appointments.json", function(data) {
+    var i;
+    for (i = 0; i < data.length; i++) {
+        console.log(data[i]);
+      }
+  })
+
   $('#doctor-appointments-section').append('BYE')
 });
