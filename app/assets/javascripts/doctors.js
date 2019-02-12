@@ -13,22 +13,18 @@ class Doctor {
 $(function() {
   $.getJSON('/doctors.json').success(function(data) {
     let i;
-    let appointments = [];
+    let doctors = [];
 
     for (i = 0; i < data.length; i++) {
-      let a = new Appointment(
-        data[i].id,
-        data[i].date,
-        data[i].time,
-        data[i].description,
-        data[i].doctor_id,
-        data[i].patient_id,
-        data[i].doctor.name,
-        data[i].patient.name,
-        data[i].doctor.slug,
-        data[i].patient.slug);
-      appointments.push(a);
+      let d = new Doctor(
+        data[i].name,
+        data[i].gender,
+        data[i].specialty,
+        data[i].practice_name,
+        data[i].practice_location,
+        data[i].phone,
+        data[i].email);
+      doctors.push(d);
     }
   });
-  });
-})
+});
