@@ -32,19 +32,39 @@
 <h2>Today's Appointments</h2>
 <hr>
 
-<% @appointments.each do |a| %>
+<div id="doctor-appointments-section">
+  <table>
+    <tr>
+      <th>Date</th>
+      <td class="doctor-appointment-date"></td>
+    </tr>
 
-<%= render :partial => "appointments/view", :locals => { :a => a} %>
+    <tr>
+      <th>Time</th>
+      <td class="doctor-appointment-time"></td>
+    </tr>
 
-<% end %>
+    <tr>
+      <th>Patient</th>
+      <td class="doctor-appointment-patient"><%#= link_to a.patient.name, patient_path(a.patient) %></td>
+    </tr>
+
+    <tr>
+      <th>Description</th>
+      <td></td>
+    </tr>
+  </table>
+
+  <div class="small-margin-top-div">
+    <%#=link_to "View Full Details", appointment_path(a), :class => "show-page-button" %>
+  </div>
+
+  <hr>
+</div>
+
 <% elsif @doctor == current_doctor %>
 <h2>You Have No Appointments Today</h2>
 <% end %>
-
-
-<div id="doctor-appointments-section">
-  <h1>HELLO</h1>
-</div>
 
 <div class='space-bottom-div'>
 </div>
