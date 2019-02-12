@@ -6,6 +6,7 @@ class Appointment {
     this.description = description;
     this.doctor_id = doctor_id;
     this.patient_id = patient_id;
+    // Considered instantiating classes for these objects, but I feel that this is easier for now
     this.doctor_name = doctor_name;
     this.patient_name = patient_name;
     this.doctor_slug = doctor_slug;
@@ -32,10 +33,11 @@ $(function() {
         data[i].patient.slug);
       appointments.push(a);
     }
+
     let o = 0;
     appointments.forEach(function(a) {
-      $('#doctor-appointments-section').append(`<div id='div-${o}'></div>`)
-      $(`#div-${o}`).append(`<table id='table-${o}'></table>`)
+      $('#doctor-appointments-section').append(`<div id='div-${o}'></div>`);
+      $(`#div-${o}`).append(`<table id='table-${o}'></table>`);
       $(`#table-${o}`).append(`<tr><th>Date</th><td>${a.date}</td></tr>`);
       $(`#table-${o}`).append(`<tr><th>Time</th><td>${a.time}</td></tr>`);
       $(`#table-${o}`).append(`<tr><th>Patient</th><td><a href='/patients/${a.patient_slug}'>${a.patient_name}</a></td></tr>`);
@@ -43,7 +45,6 @@ $(function() {
       $(`#div-${o}`).append(`<a href='/appointments/${a.r_id}' class='show-page-button'>View Full Details</a>`);
       $(`#div-${o}`).append('<hr>');
       o++;
-      //debugger
     });
   });
 });
