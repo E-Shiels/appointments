@@ -21,6 +21,4 @@ Rails.application.routes.draw do
   get '/auth/github/callback' => 'sessions#create'
   get '/auth/failure' => 'sessions#new'
 
-  get '/appointments/:id/test' => 'appointments#test'
-
 end
