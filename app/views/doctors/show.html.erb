@@ -6,15 +6,17 @@
 
 <%= render :partial => "view", :locals => { :d => @doctor} %>
 
+<% unless @doctor == current_doctor %>
+<div class="margin-top-div">
+  <a class="show-page-button">View Next Doctor</a>
+</div>
+<% end %>
 
 <% if @doctor == current_doctor %>
   <div class="margin-top-div">
     <%= link_to "View Appointments", doctor_appointments_path(@doctor), :class => "show-page-button" %>
   </div>
-<% end %>
 
-
-<% if @doctor == current_doctor %>
   <div class="margin-top-div">
     <%= link_to "New Appointment", new_doctor_appointment_path(@doctor), :class => "show-page-button" %>
   </div>
@@ -23,6 +25,7 @@
 <div class="margin-top-div">
   <%= link_to "View All Doctors", doctors_path, :class => "show-page-button"%>
 </div>
+
 <% if @doctor == current_doctor %>
 <div class="margin-top-div">
   <%= link_to "Edit Doctor Details", edit_doctor_path, :class => "show-page-button" %>
