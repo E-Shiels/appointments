@@ -7,7 +7,7 @@ class DoctorsController < ApplicationController
   end
 
   def show
-    if @current_doctor
+    if @current_doctor && @current_doctor = find_doctor_from_params
       @appointments = Appointment.today.where("doctor_id = ?", current_doctor.id)
     else
       @appointments = nil
