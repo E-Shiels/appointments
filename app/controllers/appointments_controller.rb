@@ -2,23 +2,6 @@ class AppointmentsController < ApplicationController
   before_action :login_required
   before_action :find_appointment_from_params, except: [:index, :new, :create]
 
-  # def index
-  #   if @current_patient
-  #     @appointments = @current_patient.appointments
-  #   elsif @current_doctor
-  #     @appointments = @current_doctor.appointments
-  #     @today = @appointments.today
-  #     # response = {:appointments => @appointments, :today => @today}
-  #     respond_to do |format|
-  #       format.html {render 'index.html'}
-  #       format.json { render :json => {:appointments => @appointments, :today => @today }}
-  #     end
-  #   else
-  #     flash[:alert] = "You can't view appointments because you aren't logged in."
-  #     redirect_to root_path
-  #   end
-  # end
-
   def index
     if @current_patient
       @appointments = @current_patient.appointments
