@@ -41,3 +41,7 @@
 
 <div class='space-bottom-div'>
 </div>
+
+<% if current_doctor == @doctor %>
+<%= javascript_include_tag 'appointments' %>
+<% end %>
