@@ -27,4 +27,10 @@ $(function() {
       doctors.push(d);
     }
   });
+
+  $('#next-doctor-button').on('click', function() {
+    //Find current doctor
+    //Check if current doc = last doc
+    //Show next doc, or first doc if on last doc
+  });
 });
