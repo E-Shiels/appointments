@@ -12,6 +12,9 @@ class Appointment {
     this.doctor_slug = doctor_slug;
     this.patient_slug = patient_slug;
   }
+  patient_url() {
+    return `/patients/${this.patient_slug}`;
+  }
 }
 
 $(function() {
@@ -40,7 +43,7 @@ $(function() {
       $(`#div-${o}`).append(`<table id='table-${o}'></table>`);
       $(`#table-${o}`).append(`<tr><th>Date</th><td>${a.date}</td></tr>`);
       $(`#table-${o}`).append(`<tr><th>Time</th><td>${a.time}</td></tr>`);
-      $(`#table-${o}`).append(`<tr><th>Patient</th><td><a href='/patients/${a.patient_slug}'>${a.patient_name}</a></td></tr>`);
+      $(`#table-${o}`).append(`<tr><th>Patient</th><td><a href='${a.patient_url()}'>${a.patient_name}</a></td></tr>`);
       $(`#table-${o}`).append(`<tr><th>Description</th><td>${a.description}</td></tr>`);
       $(`#div-${o}`).append(`<a href='/appointments/${a.r_id}' class='show-page-button'>View Full Details</a>`);
       $(`#div-${o}`).append('<hr>');
