@@ -26,9 +26,17 @@ $(function() {
         data[i].email);
       doctors.push(d);
     }
+
+    let id_list = [];
+    id_list = doctors.map(d => id_list.push(d));
+    return {
+      doctors: doctors,
+      id_list: id_list
+    };
   });
 
   $('#next-doctor-button').on('click', function() {
+    debugger
     //Find current doctor
     //Check if current doc = last doc
     //Show next doc, or first doc if on last doc
