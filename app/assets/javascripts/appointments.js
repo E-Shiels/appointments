@@ -36,7 +36,6 @@ $(function() {
         data[i].patient.slug);
       appointments.push(a);
     }
-
     let o = 0;
     appointments.forEach(function(a) {
       $('#doctor-appointments-section').append(`<div id='div-${o}'></div>`);
