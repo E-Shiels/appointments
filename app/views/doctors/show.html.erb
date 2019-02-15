@@ -7,7 +7,7 @@
 <%= render :partial => "view", :locals => { :d => @doctor} %>
 
 <% unless @doctor == current_doctor %>
-<div class="margin-top-div">
+<div class="margin-top-div" id="next-doctor-button-div">
   <a class="show-page-button" id="next-doctor-button">View Next Doctor</a>
 </div>
 <% end %>
