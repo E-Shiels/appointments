@@ -80,4 +80,48 @@ $(function() {
         break;
       }
     });
+
+    $(document).on('click', '#prev-doctor-button', function() {
+      let currentId = $('table').data('id');
+      let currentDoctor = doctors.find(function(element) {
+        return element.r_id === currentId;
+      });
+      let firstDoctor = doctors[0];
+      let prevId;
+      let prevDoctor;
+      switch (currentDoctor) {
+        default:
+        prevId = idList[idList.indexOf(currentId) - 1];
+        prevDoctor = doctors.find(function(element) {
+          return element.r_id === prevId;
+        });
+        $('#doctor-name').html(`${prevDoctor.name}`);
+        $('#doctor-gender').html(`${prevDoctor.gender}`);
+        $('#doctor-specialty').html(`${prevDoctor.specialty}`);
+        $('#doctor-practice_name').html(`${prevDoctor.practiceName}`);
+        $('#doctor-practice_location').html(`${prevDoctor.practiceLocation}`);
+        $('#doctor-phone').html(`${prevDoctor.phone}`);
+        $('#doctor-email').html(`${prevDoctor.email}`);
+        $('table').data('id', prevId);
+        window.history.pushState(prevDoctor,`${prevDoctor.name}`,`/doctors/${prevDoctor.slug}`);
+        currentDoctor = prevDoctor;
+        break;
+        case firstDoctor:
+        prevId = idList[doctors.length - 1];
+        prevDoctor = doctors.find(function(element) {
+          return element.r_id === prevId;
+        });
+        $('#doctor-name').html(`${prevDoctor.name}`);
+        $('#doctor-gender').html(`${prevDoctor.gender}`);
+        $('#doctor-specialty').html(`${prevDoctor.specialty}`);
+        $('#doctor-practice_name').html(`${prevDoctor.practiceName}`);
+        $('#doctor-practice_location').html(`${prevDoctor.practiceLocation}`);
+        $('#doctor-phone').html(`${prevDoctor.phone}`);
+        $('#doctor-email').html(`${prevDoctor.email}`);
+        $('table').data('id', prevId);
+        window.history.pushState(prevDoctor,`${prevDoctor.name}`,`/doctors/${prevDoctor.slug}`);
+        currentDoctor = prevDoctor;
+        break;
+      }
+    });
   });
