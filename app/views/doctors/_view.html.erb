@@ -1,32 +1,32 @@
 <table data-id="<%= d.id %>">
   <tr>
     <th>Name</th>
-    <td><%= d.name %></td>
+    <td id="doctor-name"><%= d.name %></td>
   </tr>
   <tr>
     <th>Gender</th>
-    <td><%= d.gender %></td>
+    <td id="doctor-gender"><%= d.gender %></td>
   </tr>
   <tr>
     <th>Specialty</th>
-    <td><%= d.specialty %></td>
+    <td id="doctor-specialty"><%= d.specialty %></td>
   </tr>
   <tr>
     <th>Practice Name</th>
-    <td><%= d.practice_name %></td>
+    <td id="doctor-practice_name"><%= d.practice_name %></td>
   </tr>
   <tr>
     <th>Practice Location</th>
-    <td><%= d.practice_location %></td>
+    <td id="doctor-practice_location"><%= d.practice_location %></td>
   </tr>
   <% if current_page?(doctor_path(d)) %>
   <tr>
     <th>Phone Number</th>
-    <td><%= d.phone %></td>
+    <td id="doctor-phone"><%= d.phone %></td>
   </tr>
   <tr>
     <th>Email</th>
-    <td> <%= d.email %></td>
+    <td id="doctor-email"> <%= d.email %></td>
   </tr>
   <% end %>
 </table>
