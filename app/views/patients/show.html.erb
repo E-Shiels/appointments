@@ -57,5 +57,13 @@
 <h2>You Have No Appointments This Week</h2>
 <% end %>
 
+<% if @patient.doctors.any? %>
+  <h2>Your Doctors</h2>
+  <div id="patient-doctors-section"></div>
+<% end %>
+
 <div class='space-bottom-div'>
 </div>
+<% if @current_patient = @patient %>
+<%= javascript_include_tag 'patients' %>
+<% end %>
