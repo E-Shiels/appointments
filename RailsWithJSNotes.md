@@ -1,6 +1,6 @@
 1. Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization JSON Backend. - appointments on a doctor show page
 
-2. Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model Serialization JSON Backend. - go through all doctors with a next button
+2. Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model Serialization JSON Backend. - go through all doctors with a next button and previous button
 
 3. Your Rails application must dynamically render on the page at least one 'has-many' relationship through JSON using JavaScript. - list all of a patients doctors names on patient show page
 
