@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= stub 'appointments.js'
+//= stub 'patients.js'
