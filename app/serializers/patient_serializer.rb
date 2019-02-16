@@ -1,3 +1,4 @@
 class PatientSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :gender, :age, :address, :phone, :email, :slug
+  has_many :doctor, serializer: PatientDoctorSerializer
 end
