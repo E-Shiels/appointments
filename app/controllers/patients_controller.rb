@@ -5,6 +5,10 @@ class PatientsController < ApplicationController
   def show
     if @current_patient = @patient
       @appointments = Appointment.this_week.where("patient_id = ?", @current_patient.id)
+      respond_to do |format|
+        format.html { render 'show.html' }
+        format.json { render json: @patient}
+      end
     else
       if @current_doctor
         redirect_to doctor_path(@current_doctor)
