@@ -53,6 +53,8 @@
 <div class='space-bottom-div'>
 </div>
 
-<% if current_doctor == @doctor %>
+<% if current_doctor == @doctor && @doctor.appointments.any? %>
 <%= javascript_include_tag 'appointments' %>
+<% else %>
+<%= javascript_include_tag 'doctors' %>
 <% end %>
