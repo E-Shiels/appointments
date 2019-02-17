@@ -11,12 +11,43 @@ class Patient {
   }
 }
 
- $(function() {
-   let path = window.location.pathname;
-   let doctors = [];
-   $.getJSON(path).success(function(data) {
-     data.doctors.forEach(function(element) {
+$(function() {
+  let path = window.location.pathname;
+  let doctorsList = [];
 
-     })
-   });
- });
+  $.getJSON(path).success(function(data) {
+    let doctorIds = [];
+    for (let i = 0; i < data.doctors.length; i++) {
+      let newDoctor = true;
+      for(let j = 0; j < doctorIds.length; j++) {
+        if( doctorIds[j] === data.doctors[i].id){
+          newDoctor = false;
+          break;
+        }
+      }
+      if( newDoctor ) {
+        doctorIds.push(data.doctors[i].id);
+        let doctor = data.doctors[i];
+        let d = new Doctor(
+          doctor.id,
+          doctor.name,
+          "",
+          doctor.specialty,
+          "",
+          "",
+          "",
+          "",
+          doctor.slug);
+          doctorsList.push(d);
+        }
+      }
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+      alert('getJSON request failed! ' + textStatus);
+      console.log('getJSON request failed! ' + textStatus);
+    });
+    
+    doctorsList.forEach(function(doctor) {
+      //$('#patient-doctors-section').append(`<table id="patient-doctors-list"><th><td>${doctor.name}</td></th></table>`);
+      console.log("SUCCESS");
+    });
+  });
