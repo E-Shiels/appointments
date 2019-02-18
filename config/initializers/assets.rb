@@ -15,3 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( appointments.js )
 Rails.application.config.assets.precompile += %w( patients.js )
+Rails.application.config.assets.precompile += %w( doctors.js )

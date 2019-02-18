@@ -16,3 +16,4 @@
 //= require_tree .
 //= stub 'appointments.js'
 //= stub 'patients.js'
+//= stub 'doctors.js'
