@@ -41,13 +41,11 @@ $(function() {
           doctorsList.push(d);
         }
       }
-    }).fail(function(jqXHR, textStatus, errorThrown) {
-      alert('getJSON request failed! ' + textStatus);
-      console.log('getJSON request failed! ' + textStatus);
-    });
-    
-    doctorsList.forEach(function(doctor) {
-      //$('#patient-doctors-section').append(`<table id="patient-doctors-list"><th><td>${doctor.name}</td></th></table>`);
-      console.log("SUCCESS");
-    });
-  });
+
+    }).then(function() {
+      doctorsList.forEach(function(doctor) {
+        $('#patient-doctors-section').append(`<table id="patient-doctors-list"><th><td>${doctor.name}</td></th></table>`);
+      });
+    }
+  );
+});
