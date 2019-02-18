@@ -12,10 +12,10 @@ class Doctor {
   }
 }
 
-let doctors = [];
-let idList = [];
-
 $(function() {
+  let doctors = [];
+  let idList = [];
+  
   $.getJSON('/doctors.json').success(function(data) {
     let i;
     for (i = 0; i < data.length; i++) {
