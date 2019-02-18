@@ -59,6 +59,7 @@
 
 <% if @patient.doctors.any? %>
   <h2>Your Doctors</h2>
+  <hr>
   <div id="patient-doctors-section"></div>
 <% end %>
 
@@ -66,4 +67,5 @@
 </div>
 <% if @current_patient = @patient %>
 <%= javascript_include_tag 'patients' %>
+<%= javascript_include_tag 'doctors' %>
 <% end %>
