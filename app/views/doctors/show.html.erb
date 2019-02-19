@@ -17,13 +17,13 @@
 <% end %>
 
 <% if @doctor == current_doctor %>
-  <div class="margin-top-div">
-    <%= link_to "View Appointments", doctor_appointments_path(@doctor), :class => "show-page-button" %>
-  </div>
+<div class="margin-top-div">
+  <%= link_to "View Appointments", doctor_appointments_path(@doctor), :class => "show-page-button" %>
+</div>
 
-  <div class="margin-top-div">
-    <%= link_to "New Appointment", new_doctor_appointment_path(@doctor), :class => "show-page-button" %>
-  </div>
+<div class="margin-top-div">
+  <%= link_to "New Appointment", new_doctor_appointment_path(@doctor), :class => "show-page-button" %>
+</div>
 <% end %>
 
 <div class="margin-top-div">
@@ -48,6 +48,39 @@
 
 <% elsif @doctor == current_doctor %>
 <h2>You Have No Appointments Today</h2>
+<% end %>
+
+<% if @doctor == current_doctor%>
+<h2>Quick Create Appointment</h2>
+<%= form_for @appointment do |f| %>
+<%= f.label :date %>
+<br>
+<%= f.date_field :date, value: @appointment.date  %>
+<br>
+<% if @appointment.errors[:date].any? %>
+<p><%= @appointment.errors.full_messages_for(:date)[0] %>.</p>
+<br>
+<% end %>
+
+<%= f.label :time %>
+<br>
+<%= f.time_field :time, value: "%r", value: @appointment.time  %>
+<br>
+<% if @appointment.errors[:time].any? %>
+<p><%= @appointment.errors.full_messages_for(:time)[0] %>.</p>
+<br>
+<% end %>
+
+<%= f.label(:patient_id, "Patient") %>
+<br>
+<%= f.collection_select(:patient_id, Patient.all.order('name ASC'), :id, :name, include_blank: "Select a patient") %>
+<br>
+<% if @appointment.errors[:patient_id].any? %>
+<p><%= @appointment.errors.full_messages_for(:patient_id)[0] %>.</p>
+<br>
+<% end %>
+<%= f.button "Quick Create Appointment"%>
+<% end %>
 <% end %>
 
 <div class='space-bottom-div'>
