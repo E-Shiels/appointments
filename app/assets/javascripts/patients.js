@@ -12,10 +12,9 @@ class Patient {
 }
 
 $(function() {
-    let path = window.location.pathname;
     let doctorsList = [];
 
-    $.getJSON(path).success(function(data) {
+    $.getJSON(window.location.pathname).success(function(data) {
         let doctorIds = [];
         for (let i = 0; i < data.doctors.length; i++) {
             let newDoctor = true;
