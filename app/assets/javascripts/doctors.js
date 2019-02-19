@@ -31,7 +31,7 @@ $(function() {
                 data[i].slug);
             doctors.push(d);
         }
-        doctors.map(d => idList.push(d.r_id));
+        doctors.map(doctor => idList.push(doctor.r_id));
     }).fail(function(jqXHR, textStatus, errorThrown) {
         alert('getJSON request failed! ' + textStatus);
         console.log('getJSON request failed! ' + textStatus);
