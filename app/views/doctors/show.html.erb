@@ -48,11 +48,12 @@
 
 <% elsif @doctor == current_doctor %>
 <h2>You Have No Appointments Today</h2>
+<hr>
 <% end %>
 
 <% if @doctor == current_doctor%>
 <h2>Quick Create Appointment</h2>
-<%= form_for @appointment do |f| %>
+<%= form_for @appointment, :html => {:id => "quick-create-form"} do |f| %>
 <%= f.label :date %>
 <br>
 <%= f.date_field :date, value: @appointment.date  %>
@@ -70,7 +71,7 @@
 <p><%= @appointment.errors.full_messages_for(:time)[0] %>.</p>
 <br>
 <% end %>
-
+<%= f.hidden_field :doctor_id, :value => current_doctor.id %>
 <%= f.label(:patient_id, "Patient") %>
 <br>
 <%= f.collection_select(:patient_id, Patient.all.order('name ASC'), :id, :name, include_blank: "Select a patient") %>
@@ -79,7 +80,7 @@
 <p><%= @appointment.errors.full_messages_for(:patient_id)[0] %>.</p>
 <br>
 <% end %>
-<%= f.button "Quick Create Appointment"%>
+<%= f.button "Quick Create Appointment", id: 'quick-create-appointment-button'%>
 <% end %>
 <% end %>
 
