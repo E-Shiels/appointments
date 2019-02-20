@@ -19,12 +19,12 @@ class AppointmentsController < ApplicationController
 
   def show
     if @current_patient
-      unless @current_patient = @appointment.patient
+      unless @current_patient == @appointment.patient
         flash[:alert] = "You can't view this appointment."
         redirect_to appointments_path
       end
     elsif @current_doctor
-      unless @current_doctor = @appointment.doctor
+      unless @current_doctor == @appointment.doctor
         flash[:alert] = "You can't view this appointment."
         redirect_to appointments_path
       end
@@ -66,7 +66,7 @@ class AppointmentsController < ApplicationController
 
   def edit
     if @current_doctor
-      unless @current_doctor = @appointment.doctor
+      unless @current_doctor == @appointment.doctor
         flash[:alert] = "You can't edit this appointment."
         redirect_to appointments_path(@appointment)
       end
@@ -80,7 +80,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @current_patient
-      if @current_patient = @appointment.patient
+      if @current_patient == @appointment.patient
         if @appointment.update(appointment_params)
           flash[:notice] = "Appointment sucessfully updated"
           redirect_to appointment_path(@appointment)
@@ -93,7 +93,7 @@ class AppointmentsController < ApplicationController
         redirect_to appointments_path
       end
     elsif @current_doctor
-      if @current_doctor = @appointment.doctor
+      if @current_doctor == @appointment.doctor
         if @appointment.update(appointment_params)
           flash[:notice] = "Appointment sucessfully updated"
           redirect_to appointment_path(@appointment)
@@ -110,7 +110,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     if @current_doctor
-      if @current_doctor = @appointment.doctor
+      if @current_doctor == @appointment.doctor
         @appointment.destroy
         flash[:notice] = "Appointment sucessfully cancelled."
         redirect_to appointments_path
