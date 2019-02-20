@@ -59,7 +59,7 @@ class AppointmentsController < ApplicationController
         if last_controller == 'doctors' && last_action == 'show'
           @appointment.date = Date.parse(params[:appointment][:date]) unless Date.parse(params[:appointment][:date]).nil?
           @appointment.save
-        #  render 'view_update.js', :layout => false
+          render 'view_update.js', :layout => false
         else
           @appointment.date = Date.parse(params[:appointment][:date]) unless Date.parse(params[:appointment][:date]).nil?
           @appointment.save
