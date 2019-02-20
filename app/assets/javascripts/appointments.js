@@ -67,7 +67,6 @@ $(function() {
         let url = this.action;
         let formData = $(this).serialize();
         $.post(url, formData, function(response) {
-            //            $('#doctor-appointments-section').append(response);
         }).success($('#quick-create-form')[0].reset()).then(getAndAppendAppointments());
         e.preventDefault();
     });
