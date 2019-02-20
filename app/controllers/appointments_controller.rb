@@ -2,6 +2,8 @@ class AppointmentsController < ApplicationController
   before_action :login_required
   before_action :find_appointment_from_params, except: [:index, :new, :create]
 
+  include ActionView::Helpers::UrlHelper
+
   def index
     if @current_patient
       @appointments = @current_patient.appointments
@@ -50,10 +52,20 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     if @current_doctor
       if @appointment.save
-        @appointment.date = Date.parse(params[:appointment][:date]) unless Date.parse(params[:appointment][:date]).nil?
-        @appointment.save
-        flash[:notice] = "Appointment sucessfully created"
-        redirect_to appointment_path(@appointment)
+        url = Rails.application.routes.recognize_path(request.referrer)
+        last_controller = url[:controller]
+        last_action = url[:action]
+
+        if last_controller == 'doctors' && last_action == 'show'
+          @appointment.date = Date.parse(params[:appointment][:date]) unless Date.parse(params[:appointment][:date]).nil?
+          @appointment.save
+        #  render 'view_update.js', :layout => false
+        else
+          @appointment.date = Date.parse(params[:appointment][:date]) unless Date.parse(params[:appointment][:date]).nil?
+          @appointment.save
+          flash[:notice] = "Appointment sucessfully created"
+          redirect_to appointment_path(@appointment)
+        end
       else
         flash.now[:alert] = "Appointment creation failed"
         render :new
@@ -71,8 +83,8 @@ class AppointmentsController < ApplicationController
         redirect_to appointments_path(@appointment)
       end
     elsif @current_patient
-      unless @curent_patient = @appointment.patient
-        flash[:alert] = "You can't edit thiss appointment."
+      unless @curent_patient == @appointment.patient
+        flash[:alert] = "You can't edit this appointment."
         redirect_to appointments_path
       end
     end
