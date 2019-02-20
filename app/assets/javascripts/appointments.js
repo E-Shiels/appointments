@@ -16,7 +16,12 @@ class Appointment {
     }
 }
 
-$(function() {
+function setIntervalImmediately(func, interval) {
+    func();
+    return setInterval(func, interval);
+}
+
+function getAndAppendAppointments() {
     $.getJSON('/appointments.json').success(function(data) {
         let i;
         let appointments = [];
@@ -35,18 +40,35 @@ $(function() {
                 data[i].patient.slug);
             appointments.push(a);
         }
-
         let o = 0;
+        $('#doctor-appointments-section').empty();
         appointments.forEach(function(a) {
             $('#doctor-appointments-section').append(`<div id='div-${o}'></div>`);
             $(`#div-${o}`).append(`<table id='table-${o}'></table>`);
             $(`#table-${o}`).append(`<tr><th>Date</th><td>${a.date}</td></tr>`);
             $(`#table-${o}`).append(`<tr><th>Time</th><td>${a.time}</td></tr>`);
             $(`#table-${o}`).append(`<tr><th>Patient</th><td><a href='${a.patient_url()}'>${a.patient_name}</a></td></tr>`);
-            $(`#table-${o}`).append(`<tr><th>Description</th><td>${a.description}</td></tr>`);
+            //  $(`#table-${o}`).append(`<tr><th>Description</th><td>${a.description}</td></tr>`);
             $(`#div-${o}`).append(`<a href='/appointments/${a.r_id}' class='show-page-button'>View Full Details</a>`);
             $(`#div-${o}`).append('<hr>');
             o++;
         });
+    });
+}
+
+$(function() {
+    setIntervalImmediately(function() {
+        getAndAppendAppointments();
+    }, 10000);
+});
+
+$(function() {
+    $('#quick-create-form').on("submit", function(e) {
+        let url = this.action;
+        let formData = $(this).serialize();
+        $.post(url, formData, function(response) {
+            //            $('#doctor-appointments-section').append(response);
+        }).success($('#quick-create-form')[0].reset()).then(getAndAppendAppointments());
+        e.preventDefault();
     });
 });
