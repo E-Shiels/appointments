@@ -48,7 +48,6 @@ function getAndAppendAppointments() {
             $(`#table-${o}`).append(`<tr><th>Date</th><td>${a.date}</td></tr>`);
             $(`#table-${o}`).append(`<tr><th>Time</th><td>${a.time}</td></tr>`);
             $(`#table-${o}`).append(`<tr><th>Patient</th><td><a href='${a.patient_url()}'>${a.patient_name}</a></td></tr>`);
-            //  $(`#table-${o}`).append(`<tr><th>Description</th><td>${a.description}</td></tr>`);
             $(`#div-${o}`).append(`<a href='/appointments/${a.r_id}' class='show-page-button'>View Full Details</a>`);
             $(`#div-${o}`).append('<hr>');
             o++;
@@ -66,8 +65,9 @@ $(function() {
     $('#quick-create-form').on("submit", function(e) {
         let url = this.action;
         let formData = $(this).serialize();
-        $.post(url, formData, function(response) {
-        }).success($('#quick-create-form')[0].reset()).then(getAndAppendAppointments());
+        $.post(url, formData, function(response) {}).success($('#quick-create-form')[0].reset())
+            .then($('#appointments-state-header').html("Today\'s Appointments"))
+            .then(getAndAppendAppointments());
         e.preventDefault();
     });
 });
