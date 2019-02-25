@@ -56,9 +56,9 @@ function getAndAppendAppointments() {
 }
 
 $(function() {
-    setIntervalImmediately(function() {
-        getAndAppendAppointments();
-    }, 10000);
+  setIntervalImmediately(function() {
+    getAndAppendAppointments();
+  }, 15000);
 });
 
 $(function() {
