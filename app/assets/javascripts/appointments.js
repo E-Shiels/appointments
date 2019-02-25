@@ -1,6 +1,6 @@
 class Appointment {
-    constructor(r_id, date, time, description, doctor_id, patient_id, doctor_name, patient_name, doctor_slug, patient_slug) {
-        this.r_id = r_id;
+    constructor(id, date, time, description, doctor_id, patient_id, doctor_name, patient_name, doctor_slug, patient_slug) {
+        this.id = id;
         this.date = date;
         this.time = time;
         this.description = description;
@@ -48,7 +48,7 @@ function getAndAppendAppointments() {
             $(`#table-${o}`).append(`<tr><th>Date</th><td>${a.date}</td></tr>`);
             $(`#table-${o}`).append(`<tr><th>Time</th><td>${a.time}</td></tr>`);
             $(`#table-${o}`).append(`<tr><th>Patient</th><td><a href='${a.patient_url()}'>${a.patient_name}</a></td></tr>`);
-            $(`#div-${o}`).append(`<a href='/appointments/${a.r_id}' class='show-page-button'>View Full Details</a>`);
+            $(`#div-${o}`).append(`<a href='/appointments/${a.id}' class='show-page-button'>View Full Details</a>`);
             $(`#div-${o}`).append('<hr>');
             o++;
         });

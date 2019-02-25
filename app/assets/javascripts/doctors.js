@@ -1,6 +1,6 @@
 class Doctor {
-    constructor(r_id, name, gender, specialty, practiceName, practiceLocation, phone, email, slug) {
-        this.r_id = r_id;
+    constructor(id, name, gender, specialty, practiceName, practiceLocation, phone, email, slug) {
+        this.id = id;
         this.name = name;
         this.gender = gender;
         this.specialty = specialty;
@@ -31,7 +31,7 @@ $(function() {
                 data[i].slug);
             doctors.push(d);
         }
-        doctors.map(doctor => idList.push(doctor.r_id));
+        doctors.map(doctor => idList.push(doctor.id));
     }).fail(function(jqXHR, textStatus, errorThrown) {
         alert('getJSON request failed! ' + textStatus);
         console.log('getJSON request failed! ' + textStatus);
@@ -41,7 +41,7 @@ $(function() {
 function nextDoctor() {
     let currentId = $('table').data('id');
     let currentDoctor = doctors.find(function(element) {
-        return element.r_id === currentId;
+        return element.id === currentId;
     });
     let lastDoctor = doctors[doctors.length - 1];
     let nextId;
@@ -51,7 +51,7 @@ function nextDoctor() {
         default:
             nextId = idList[idList.indexOf(currentId) + 1];
             nextDoctor = doctors.find(function(element) {
-                return element.r_id === nextId;
+                return element.id === nextId;
             });
             $('#doctor-name').html(`${nextDoctor.name}`);
             $('#doctor-gender').html(`${nextDoctor.gender}`);
@@ -68,7 +68,7 @@ function nextDoctor() {
         case lastDoctor:
             nextId = idList[0];
             nextDoctor = doctors.find(function(element) {
-                return element.r_id === nextId;
+                return element.id === nextId;
             });
             $('#doctor-name').html(`${nextDoctor.name}`);
             $('#doctor-gender').html(`${nextDoctor.gender}`);
@@ -87,7 +87,7 @@ function nextDoctor() {
 function previousDoctor() {
     let currentId = $('table').data('id');
     let currentDoctor = doctors.find(function(element) {
-        return element.r_id === currentId;
+        return element.id === currentId;
     });
     let firstDoctor = doctors[0];
     let prevId;
@@ -97,7 +97,7 @@ function previousDoctor() {
         default:
             prevId = idList[idList.indexOf(currentId) - 1];
             prevDoctor = doctors.find(function(element) {
-                return element.r_id === prevId;
+                return element.id === prevId;
             });
             $('#doctor-name').html(`${prevDoctor.name}`);
             $('#doctor-gender').html(`${prevDoctor.gender}`);
@@ -114,7 +114,7 @@ function previousDoctor() {
         case firstDoctor:
             prevId = idList[doctors.length - 1];
             prevDoctor = doctors.find(function(element) {
-                return element.r_id === prevId;
+                return element.id === prevId;
             });
             $('#doctor-name').html(`${prevDoctor.name}`);
             $('#doctor-gender').html(`${prevDoctor.gender}`);
