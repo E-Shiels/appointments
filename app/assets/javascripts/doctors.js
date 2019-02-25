@@ -48,20 +48,24 @@ function nextDoctor() {
   let nextId;
   let nextDoctor;
 
+  function useNextDoctorHTML() {
+    $('#doctor-name').html(`${nextDoctor.name}`);
+    $('#doctor-gender').html(`${nextDoctor.gender}`);
+    $('#doctor-specialty').html(`${nextDoctor.specialty}`);
+    $('#doctor-practice_name').html(`${nextDoctor.practiceName}`);
+    $('#doctor-practice_location').html(`${nextDoctor.practiceLocation}`);
+    $('#doctor-phone').html(`${nextDoctor.phone}`);
+    $('#doctor-email').html(`${nextDoctor.email}`);
+    $('table').data('id', nextId);
+  }
+
   switch (currentDoctor) {
     default:
       nextId = idList[idList.indexOf(currentId) + 1];
       nextDoctor = doctors.find(function(element) {
         return element.id === nextId;
       });
-      $('#doctor-name').html(`${nextDoctor.name}`);
-      $('#doctor-gender').html(`${nextDoctor.gender}`);
-      $('#doctor-specialty').html(`${nextDoctor.specialty}`);
-      $('#doctor-practice_name').html(`${nextDoctor.practiceName}`);
-      $('#doctor-practice_location').html(`${nextDoctor.practiceLocation}`);
-      $('#doctor-phone').html(`${nextDoctor.phone}`);
-      $('#doctor-email').html(`${nextDoctor.email}`);
-      $('table').data('id', nextId);
+      useNextDoctorHTML();
       window.history.pushState(nextDoctor, `${nextDoctor.name}`, `/doctors/${nextDoctor.slug}`);
       currentDoctor = nextDoctor;
       break;
@@ -71,14 +75,7 @@ function nextDoctor() {
       nextDoctor = doctors.find(function(element) {
         return element.id === nextId;
       });
-      $('#doctor-name').html(`${nextDoctor.name}`);
-      $('#doctor-gender').html(`${nextDoctor.gender}`);
-      $('#doctor-specialty').html(`${nextDoctor.specialty}`);
-      $('#doctor-practice_name').html(`${nextDoctor.practiceName}`);
-      $('#doctor-practice_location').html(`${nextDoctor.practiceLocation}`);
-      $('#doctor-phone').html(`${nextDoctor.phone}`);
-      $('#doctor-email').html(`${nextDoctor.email}`);
-      $('table').data('id', nextId);
+      useNextDoctorHTML();
       window.history.pushState(nextDoctor, `${nextDoctor.name}`, `/doctors/${nextDoctor.slug}`);
       currentDoctor = nextDoctor;
       break;
@@ -94,20 +91,24 @@ function previousDoctor() {
   let prevId;
   let prevDoctor;
 
+  function usePreviousDoctorHTML() {
+    $('#doctor-name').html(`${prevDoctor.name}`);
+    $('#doctor-gender').html(`${prevDoctor.gender}`);
+    $('#doctor-specialty').html(`${prevDoctor.specialty}`);
+    $('#doctor-practice_name').html(`${prevDoctor.practiceName}`);
+    $('#doctor-practice_location').html(`${prevDoctor.practiceLocation}`);
+    $('#doctor-phone').html(`${prevDoctor.phone}`);
+    $('#doctor-email').html(`${prevDoctor.email}`);
+    $('table').data('id', prevId);
+  }
+
   switch (currentDoctor) {
     default:
       prevId = idList[idList.indexOf(currentId) - 1];
       prevDoctor = doctors.find(function(element) {
         return element.id === prevId;
       });
-      $('#doctor-name').html(`${prevDoctor.name}`);
-      $('#doctor-gender').html(`${prevDoctor.gender}`);
-      $('#doctor-specialty').html(`${prevDoctor.specialty}`);
-      $('#doctor-practice_name').html(`${prevDoctor.practiceName}`);
-      $('#doctor-practice_location').html(`${prevDoctor.practiceLocation}`);
-      $('#doctor-phone').html(`${prevDoctor.phone}`);
-      $('#doctor-email').html(`${prevDoctor.email}`);
-      $('table').data('id', prevId);
+      usePreviousDoctorHTML();
       window.history.pushState(prevDoctor, `${prevDoctor.name}`, `/doctors/${prevDoctor.slug}`);
       currentDoctor = prevDoctor;
       break;
@@ -117,14 +118,7 @@ function previousDoctor() {
       prevDoctor = doctors.find(function(element) {
         return element.id === prevId;
       });
-      $('#doctor-name').html(`${prevDoctor.name}`);
-      $('#doctor-gender').html(`${prevDoctor.gender}`);
-      $('#doctor-specialty').html(`${prevDoctor.specialty}`);
-      $('#doctor-practice_name').html(`${prevDoctor.practiceName}`);
-      $('#doctor-practice_location').html(`${prevDoctor.practiceLocation}`);
-      $('#doctor-phone').html(`${prevDoctor.phone}`);
-      $('#doctor-email').html(`${prevDoctor.email}`);
-      $('table').data('id', prevId);
+      usePreviousDoctorHTML();
       window.history.pushState(prevDoctor, `${prevDoctor.name}`, `/doctors/${prevDoctor.slug}`);
       currentDoctor = prevDoctor;
       break;
