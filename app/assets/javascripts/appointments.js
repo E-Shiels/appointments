@@ -16,9 +16,9 @@ class Appointment {
   }
 }
 
-function setIntervalImmediately(function, interval) {
-  function();
-  return setInterval(function, interval);
+function setIntervalImmediately(func, interval) {
+  func();
+  return setInterval(func, interval);
 }
 
 function getAndAppendAppointments() {
