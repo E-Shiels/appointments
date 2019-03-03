@@ -44,9 +44,10 @@ $(function() {
   }).then(function() {
     doctorsList.forEach(function(doctor) {
       $('#patient-doctors-section').append(`<table id="patient-doctors-list" data-id="${doctor.id}"></table>`);
-      $(`#patient-doctors-list[data-id='${doctor.id}']`).append(`<tr><th>Name</th><td><a href="/doctors/${doctor.slug}">${doctor.name}</a></td></tr>`);
-      $(`#patient-doctors-list[data-id='${doctor.id}']`).append(`<tr><th>Specialty</th><td>${doctor.specialty}</td></tr>`);
-      $(`#patient-doctors-list[data-id='${doctor.id}']`).after(`<hr>`);
+      const $patientDoctorsList = $(`#patient-doctors-list[data-id='${doctor.id}']`);
+      $patientDoctorsList.append(`<tr><th>Name</th><td><a href="/doctors/${doctor.slug}">${doctor.name}</a></td></tr>`);
+      $patientDoctorsList.append(`<tr><th>Specialty</th><td>${doctor.specialty}</td></tr>`);
+      $patientDoctorsList.after(`<hr>`);
     });
   });
 });

@@ -43,12 +43,14 @@ function getAndAppendAppointments() {
     $('#doctor-appointments-section').empty();
     appointments.forEach(function(a) {
       $('#doctor-appointments-section').append(`<div id='div-${o}'></div>`);
-      $(`#div-${o}`).append(`<table id='table-${o}'></table>`);
-      $(`#table-${o}`).append(`<tr><th>Date</th><td>${a.date}</td></tr>`);
-      $(`#table-${o}`).append(`<tr><th>Time</th><td>${a.time}</td></tr>`);
-      $(`#table-${o}`).append(`<tr><th>Patient</th><td><a href='${a.patientUrl()}'>${a.patientName}</a></td></tr>`);
-      $(`#div-${o}`).append(`<a href='/appointments/${a.id}' class='show-page-button'>View Full Details</a>`);
-      $(`#div-${o}`).append('<hr>');
+      const $div = $(`#div-${o}`);
+      $div.append(`<table id='table-${o}'></table>`);
+      const $table = $(`#table-${o}`);
+      $table.append(`<tr><th>Date</th><td>${a.date}</td></tr>`);
+      $table.append(`<tr><th>Time</th><td>${a.time}</td></tr>`);
+      $table.append(`<tr><th>Patient</th><td><a href='${a.patientUrl()}'>${a.patientName}</a></td></tr>`);
+      $div.append(`<a href='/appointments/${a.id}' class='show-page-button'>View Full Details</a>`);
+      $div.append('<hr>');
       o++;
     });
   }).fail(function(jqXHR, textStatus, errorThrown) {
