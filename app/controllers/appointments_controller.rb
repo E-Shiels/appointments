@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
     elsif @current_doctor
       @appointments = @current_doctor.appointments
       respond_to do |format|
-        format.html {render 'index.html'}
+        format.html { render 'index.html' }
         format.json { render json: @appointments.today }
       end
     else
