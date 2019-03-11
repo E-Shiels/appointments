@@ -14,6 +14,11 @@ class Appointment {
   patientUrl() {
     return `/patients/${this.patientSlug}`;
   }
+  returnHTML() {
+    return (
+      
+    )
+  }
 }
 
 function setIntervalImmediately(func, interval) {
@@ -22,7 +27,7 @@ function setIntervalImmediately(func, interval) {
 }
 
 function getAndAppendAppointments() {
-  $.getJSON('/appointments.json').success(function(data) {
+  $.getJSON('/appointments').success(function(data) {
     let i;
     let appointments = [];
     for (i = 0; i < data.length; i++) {
