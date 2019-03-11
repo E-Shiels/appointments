@@ -15,9 +15,15 @@ class Appointment {
     return `/patients/${this.patientSlug}`;
   }
   returnHTML() {
-    return (
-      
-    )
+    return `<div>
+              <table>
+                <tr><th>Date</th><td>${this.date}</td></tr>
+                <tr><th>Time</th><td>${this.time}</td></tr>
+                <tr><th>Patient</th><td><a href='${this.patientUrl()}'>${this.patientName}</a></td></tr>
+              </table>
+              <a href='/appointments/${this.id}' class='show-page-button'>View Full Details</a>
+              <hr>
+            </div>`
   }
 }
 
@@ -47,16 +53,7 @@ function getAndAppendAppointments() {
     let o = 0;
     $('#doctor-appointments-section').empty();
     appointments.forEach(function(a) {
-      $('#doctor-appointments-section').append(`<div id='div-${o}'></div>`);
-      const $div = $(`#div-${o}`);
-      $div.append(`<table id='table-${o}'></table>`);
-      const $table = $(`#table-${o}`);
-      $table.append(`<tr><th>Date</th><td>${a.date}</td></tr>`);
-      $table.append(`<tr><th>Time</th><td>${a.time}</td></tr>`);
-      $table.append(`<tr><th>Patient</th><td><a href='${a.patientUrl()}'>${a.patientName}</a></td></tr>`);
-      $div.append(`<a href='/appointments/${a.id}' class='show-page-button'>View Full Details</a>`);
-      $div.append('<hr>');
-      o++;
+      $('#doctor-appointments-section').append(a.returnHTML());
     });
   }).fail(function(jqXHR, textStatus, errorThrown) {
     const errorMessage = 'getJSON request failed! ' + textStatus + ' - ' + errorThrown;
@@ -64,12 +61,6 @@ function getAndAppendAppointments() {
     console.log(errorMessage);
   });
 }
-
-$(function() {
-  setIntervalImmediately(function() {
-    getAndAppendAppointments();
-  }, 15000);
-});
 
 $(function() {
   $('#quick-create-form').on("submit", function(e) {
@@ -80,4 +71,8 @@ $(function() {
       .then(getAndAppendAppointments());
     e.preventDefault();
   });
+
+  setIntervalImmediately(function() {
+    getAndAppendAppointments();
+  }, 15000);
 });
