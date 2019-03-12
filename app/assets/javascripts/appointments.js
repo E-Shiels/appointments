@@ -48,7 +48,7 @@ function Appointment(obj) {
   this.doctorSlug = obj.doctor.slug;
   this.patientSlug = obj.patient.slug;
 }
-Appointment.prototype.patientUrl= function() {
+Appointment.prototype.patientUrl = function() {
   return `/patients/${this.patientSlug}`;
 }
 Appointment.prototype.returnHTML = function() {
@@ -76,16 +76,16 @@ function getAndAppendAppointments() {
     for (i = 0; i < data.length; i++) {
       let a = new Appointment(
         data[i]);
-        // data[i].id,
-        // data[i].date,
-        // data[i].time,
-        // data[i].description,
-        // data[i].doctor.id,
-        // data[i].patient.id,
-        // data[i].doctor.name,
-        // data[i].patient.name,
-        // data[i].doctor.slug,
-        // data[i].patient.slug);
+      // data[i].id,
+      // data[i].date,
+      // data[i].time,
+      // data[i].description,
+      // data[i].doctor.id,
+      // data[i].patient.id,
+      // data[i].doctor.name,
+      // data[i].patient.name,
+      // data[i].doctor.slug,
+      // data[i].patient.slug);
       appointments.push(a);
     }
     let o = 0;
