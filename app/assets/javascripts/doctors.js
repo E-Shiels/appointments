@@ -52,6 +52,24 @@ $(function() {
     alert(errorMessage);
     console.log(errorMessage);
   });
+
+
+  $('#view-appointments-button').on('click', function() {
+    const url = `${window.location.pathname}.json`;
+    $.get(url, function(res) {
+      let appointments = [];
+      res.forEach(function(a) {
+        let newA = new Appointment(a);
+        appointments.push(newA);
+      });
+      appointments.sort(function(a, b) {
+        return Date.parse(`${a.date}, ${a.time}`) - Date.parse(`${b.date}, ${b.time}`);
+      });
+      appointments.forEach(function(a) {
+        $('#new-appointments-section').append(a.returnHTML());
+      });
+    });
+  });
 });
 
 function nextDoctor() {

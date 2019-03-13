@@ -12,8 +12,13 @@ class DoctorsController < ApplicationController
 
   def show
     if @current_doctor && @current_doctor = find_doctor_from_params
+      @all_appointments = @current_doctor.appointments
       @appointments = Appointment.today.where("doctor_id = ?", current_doctor.id)
       @appointment = Appointment.new
+      respond_to do |format|
+        format.html { render 'show.html' }
+        format.json { render json: @all_appointments}
+      end
     else
       @appointments = nil
     end

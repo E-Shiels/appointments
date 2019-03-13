@@ -48,7 +48,9 @@
     <% end %>
 
     <hr>
+    <button id="view-appointments-button" class="show-page-button">View My Appointments</button>
     <div id="doctor-appointments-section"></div>
+    <div id="new-appointments-section"></div>
   </div>
 
   <% if @doctor == current_doctor%>
@@ -88,6 +90,5 @@
 
 <% if current_doctor == @doctor && @doctor.appointments.any? %>
   <%= javascript_include_tag 'appointments' %>
-<% else %>
-  <%= javascript_include_tag 'doctors' %>
 <% end %>
+  <%= javascript_include_tag 'doctors' %>
