@@ -13,15 +13,15 @@
 // }
 
 function Doctor(obj) {
-      this.id = obj.id;
-      this.name = obj.name;
-      this.gender = obj.gender;
-      this.specialty = obj.specialty;
-      this.practiceName = obj.practiceName;
-      this.practiceLocation = obj.practiceLocation;
-      this.phone = obj.phone;
-      this.email = obj.email;
-      this.slug = obj.slug;
+  this.id = obj.id;
+  this.name = obj.name;
+  this.gender = obj.gender;
+  this.specialty = obj.specialty;
+  this.practiceName = obj.practiceName;
+  this.practiceLocation = obj.practiceLocation;
+  this.phone = obj.phone;
+  this.email = obj.email;
+  this.slug = obj.slug;
 }
 
 let doctors = [];
@@ -33,15 +33,15 @@ $(function() {
     for (i = 0; i < data.length; i++) {
       let d = new Doctor(
         data[i]);
-        // data[i].id,
-        // data[i].name,
-        // data[i].gender,
-        // data[i].specialty,
-        // data[i].practice_name,
-        // data[i].practice_location,
-        // data[i].phone,
-        // data[i].email,
-        // data[i].slug);
+      // data[i].id,
+      // data[i].name,
+      // data[i].gender,
+      // data[i].specialty,
+      // data[i].practice_name,
+      // data[i].practice_location,
+      // data[i].phone,
+      // data[i].email,
+      // data[i].slug);
       doctors.push(d);
     }
     doctors.map(doctor => idList.push(doctor.id));
