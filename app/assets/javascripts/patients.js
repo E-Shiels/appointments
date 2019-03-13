@@ -38,7 +38,6 @@ $(function() {
       if (newDoctor) {
         doctorIds.push(data.doctors[i].id);
         let doctor = data.doctors[i];
-        debugger;
         let d = new Doctor({
           id: doctor.id,
           name: doctor.name,
