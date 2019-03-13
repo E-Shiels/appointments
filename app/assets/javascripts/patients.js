@@ -1,14 +1,25 @@
-class Patient {
-  constructor(id, name, gender, age, address, phone, email, slug) {
-    this.id = id;
-    this.name = name;
-    this.gender = gender;
-    this.age = age;
-    this.address = address;
-    this.phone = phone;
-    this.email = email;
-    this.slug = slug;
-  }
+// class Patient {
+//   constructor(id, name, gender, age, address, phone, email, slug) {
+//     this.id = id;
+//     this.name = name;
+//     this.gender = gender;
+//     this.age = age;
+//     this.address = address;
+//     this.phone = phone;
+//     this.email = email;
+//     this.slug = slug;
+//   }
+// }
+
+function Patient(obj) {
+      this.id = obj.id;
+      this.name = obj.name;
+      this.gender = obj.gender;
+      this.age = obj.age;
+      this.address = obj.address;
+      this.phone = obj.phone;
+      this.email = obj.email;
+      this.slug = obj.slug;
 }
 
 $(function() {
@@ -27,16 +38,17 @@ $(function() {
       if (newDoctor) {
         doctorIds.push(data.doctors[i].id);
         let doctor = data.doctors[i];
-        let d = new Doctor(
-          doctor.id,
-          doctor.name,
-          "",
-          doctor.specialty,
-          "",
-          "",
-          "",
-          "",
-          doctor.slug);
+        debugger;
+        let d = new Doctor({
+          id: doctor.id,
+          name: doctor.name,
+          // "",
+          specialty: doctor.specialty,
+          // "",
+          // "",
+          // "",
+          // "",
+          slug: doctor.slug});
         doctorsList.push(d);
       }
     }
