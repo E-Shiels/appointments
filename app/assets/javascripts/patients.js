@@ -11,6 +11,8 @@
 //   }
 // }
 
+
+//ES5 Object Constructor
 function Patient(obj) {
       this.id = obj.id;
       this.name = obj.name;
@@ -24,7 +26,7 @@ function Patient(obj) {
 
 $(function() {
   let doctorsList = [];
-
+  //Create list of unique doctors for patient instance
   $.getJSON(window.location.pathname).success(function(data) {
     let doctorIds = [];
     for (let i = 0; i < data.doctors.length; i++) {

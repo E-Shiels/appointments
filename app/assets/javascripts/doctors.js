@@ -12,6 +12,7 @@
 //   }
 // }
 
+//ES5 Object Constructor
 function Doctor(obj) {
   this.id = obj.id;
   this.name = obj.name;
@@ -29,6 +30,7 @@ let idList = [];
 
 $(function() {
   $.getJSON('/doctors.json').success(function(data) {
+    //Instantiate doctors
     let i;
     for (i = 0; i < data.length; i++) {
       let d = new Doctor(

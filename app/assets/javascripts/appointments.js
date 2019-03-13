@@ -63,7 +63,7 @@ Appointment.prototype.returnHTML = function() {
             </div>`
 }
 
-
+//Invokes function and sets inverva to run function again
 function setIntervalImmediately(func, interval) {
   func();
   return setInterval(func, interval);
@@ -89,6 +89,7 @@ function getAndAppendAppointments() {
       appointments.push(a);
     }
     let o = 0;
+    //Empty appointments section and add appointments
     $('#doctor-appointments-section').empty();
     appointments.forEach(function(a) {
       $('#doctor-appointments-section').append(a.returnHTML());
@@ -109,7 +110,7 @@ $(function() {
       .then(getAndAppendAppointments());
     e.preventDefault();
   });
-
+  //Invoke getAndAppendAppointments and set 15 second interval to invoke again
   setIntervalImmediately(function() {
     getAndAppendAppointments();
   }, 15000);
