@@ -1,17 +1,3 @@
-// class Patient {
-//   constructor(id, name, gender, age, address, phone, email, slug) {
-//     this.id = id;
-//     this.name = name;
-//     this.gender = gender;
-//     this.age = age;
-//     this.address = address;
-//     this.phone = phone;
-//     this.email = email;
-//     this.slug = slug;
-//   }
-// }
-
-
 //ES5 Object Constructor
 function Patient(obj) {
       this.id = obj.id;
