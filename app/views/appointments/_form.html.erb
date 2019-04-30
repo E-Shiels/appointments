@@ -1,19 +1,19 @@
 <%= f.label :date %>
 <br>
-<%= f.date_field :date, value: appointment.date  %>
+<%= f.date_field :date, value: appointment.date %>
 <br>
 <% if appointment.errors[:date].any? %>
-<p><%= appointment.errors.full_messages_for(:date)[0] %>.</p>
-<br>
+  <p><%= appointment.errors.full_messages_for(:date)[0] %>.</p>
+  <br>
 <% end %>
 
 <%= f.label :time %>
 <br>
-<%= f.time_field :time, value: "%r", value: appointment.time  %>
+<%= f.time_field :time, value: "%r", value: appointment.time %>
 <br>
 <% if appointment.errors[:time].any? %>
-<p><%= appointment.errors.full_messages_for(:time)[0] %>.</p>
-<br>
+  <p><%= appointment.errors.full_messages_for(:time)[0] %>.</p>
+  <br>
 <% end %>
 
 <%= f.label :description %>
@@ -21,8 +21,8 @@
 <%= f.text_area :description %>
 <br>
 <% if appointment.errors[:description].any? %>
-<p><%= appointment.errors.full_messages_for(:description)[0] %>.</p>
-<br>
+  <p><%= appointment.errors.full_messages_for(:description)[0] %>.</p>
+  <br>
 <% end %>
 
 <%= f.label(:doctor_id, "Doctor") %>
@@ -36,6 +36,6 @@
 <%= f.collection_select(:patient_id, Patient.all.order('name ASC'), :id, :name, include_blank: "Select a patient") %>
 <br>
 <% if appointment.errors[:patient_id].any? %>
-<p><%= appointment.errors.full_messages_for(:patient_id)[0] %>.</p>
-<br>
+  <p><%= appointment.errors.full_messages_for(:patient_id)[0] %>.</p>
+  <br>
 <% end %>

@@ -1,29 +1,29 @@
 <% if @doctor == current_doctor %>
-<h1>Your Details</h1>
+  <h1>Your Details</h1>
 <% else %>
-<h1>Doctor View</h1>
+  <h1>Doctor View</h1>
 <% end %>
 
 <%= render :partial => "view", :locals => { :d => @doctor} %>
 
 <% unless @doctor == current_doctor %>
-<div class="margin-top-div" id="prev-doctor-button-div">
-  <a class="show-page-button" id="prev-doctor-button" onclick="previousDoctor()">View Previous Doctor</a>
-</div>
-<div class="margin-top-div" id="next-doctor-button-div">
-  <a class="show-page-button" id="next-doctor-button" onclick="nextDoctor()">View Next Doctor</a>
-</div>
+  <div class="margin-top-div" id="prev-doctor-button-div">
+    <a class="show-page-button" id="prev-doctor-button" onclick="previousDoctor()">View Previous Doctor</a>
+  </div>
+  <div class="margin-top-div" id="next-doctor-button-div">
+    <a class="show-page-button" id="next-doctor-button" onclick="nextDoctor()">View Next Doctor</a>
+  </div>
 
 <% end %>
 
 <% if @doctor == current_doctor %>
-<div class="margin-top-div">
-  <%= link_to "View Appointments", doctor_appointments_path(@doctor), :class => "show-page-button" %>
-</div>
+  <div class="margin-top-div">
+    <%= link_to "View Appointments", doctor_appointments_path(@doctor), :class => "show-page-button" %>
+  </div>
 
-<div class="margin-top-div">
-  <%= link_to "New Appointment", new_doctor_appointment_path(@doctor), :class => "show-page-button" %>
-</div>
+  <div class="margin-top-div">
+    <%= link_to "New Appointment", new_doctor_appointment_path(@doctor), :class => "show-page-button" %>
+  </div>
 <% end %>
 
 <div class="margin-top-div">
@@ -31,64 +31,63 @@
 </div>
 
 <% if @doctor == current_doctor %>
-<div class="margin-top-div">
-  <%= link_to "Edit Doctor Details", edit_doctor_path, :class => "show-page-button" %>
-</div>
-<div class="margin-top-div">
-  <%= button_to "Delete Your Account", doctor_path(@doctor), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, :class => "show-page-button" %>
-</div>
+  <div class="margin-top-div">
+    <%= link_to "Edit Doctor Details", edit_doctor_path, :class => "show-page-button" %>
+  </div>
+  <div class="margin-top-div">
+    <%= button_to "Delete Your Account", doctor_path(@doctor), method: :delete, data: { confirm: 'Are you sure you want to delete your account?'}, :class => "show-page-button" %>
+  </div>
 <% end %>
 
-<% if @doctor == current_doctor && @appointments.any? %>
-<h2>Today's Appointments</h2>
-<hr>
+<div id="appointments-state-section">
 
-<div id="doctor-appointments-section">
-</div>
+  <% if @doctor == current_doctor && @appointments.any? %>
+    <h2 id="appointments-state-header">Today's Appointments</h2>
+    <% elsif @doctor == current_doctor %>
+      <h2 id="appointments-state-header">You Have No Appointments Today</h2>
+    <% end %>
 
-<% elsif @doctor == current_doctor %>
-<h2>You Have No Appointments Today</h2>
-<hr>
+    <hr>
+    <div id="doctor-appointments-section"></div>
+  </div>
+
+  <% if @doctor == current_doctor%>
+    <h2>Quick Create Appointment</h2>
+    <%= form_for @appointment, :html => {:id => "quick-create-form"} do |f| %>
+    <%= f.label :date %>
+    <br>
+    <%= f.date_field :date, value: @appointment.date %>
+    <br>
+    <% if @appointment.errors[:date].any? %>
+      <p><%= @appointment.errors.full_messages_for(:date)[0] %>.</p>
+      <br>
+    <% end %>
+
+    <%= f.label :time %>
+    <br>
+    <%= f.time_field :time, value: "%r", value: @appointment.time %>
+    <br>
+    <% if @appointment.errors[:time].any? %>
+      <p><%= @appointment.errors.full_messages_for(:time)[0] %>.</p>
+      <br>
+    <% end %>
+    <%= f.hidden_field :doctor_id, :value => current_doctor.id %>
+    <%= f.label(:patient_id, "Patient") %>
+    <br>
+    <%= f.collection_select(:patient_id, Patient.all.order('name ASC'), :id, :name, include_blank: "Select a patient") %>
+    <br>
+    <% if @appointment.errors[:patient_id].any? %>
+      <p><%= @appointment.errors.full_messages_for(:patient_id)[0] %>.</p>
+      <br>
+    <% end %>
+    <%= f.button "Quick Create Appointment", id: 'quick-create-appointment-button'%>
+  <% end %>
 <% end %>
 
-<% if @doctor == current_doctor%>
-<h2>Quick Create Appointment</h2>
-<%= form_for @appointment, :html => {:id => "quick-create-form"} do |f| %>
-<%= f.label :date %>
-<br>
-<%= f.date_field :date, value: @appointment.date  %>
-<br>
-<% if @appointment.errors[:date].any? %>
-<p><%= @appointment.errors.full_messages_for(:date)[0] %>.</p>
-<br>
-<% end %>
-
-<%= f.label :time %>
-<br>
-<%= f.time_field :time, value: "%r", value: @appointment.time  %>
-<br>
-<% if @appointment.errors[:time].any? %>
-<p><%= @appointment.errors.full_messages_for(:time)[0] %>.</p>
-<br>
-<% end %>
-<%= f.hidden_field :doctor_id, :value => current_doctor.id %>
-<%= f.label(:patient_id, "Patient") %>
-<br>
-<%= f.collection_select(:patient_id, Patient.all.order('name ASC'), :id, :name, include_blank: "Select a patient") %>
-<br>
-<% if @appointment.errors[:patient_id].any? %>
-<p><%= @appointment.errors.full_messages_for(:patient_id)[0] %>.</p>
-<br>
-<% end %>
-<%= f.button "Quick Create Appointment", id: 'quick-create-appointment-button'%>
-<% end %>
-<% end %>
-
-<div class='space-bottom-div'>
-</div>
+<div class='space-bottom-div'></div>
 
 <% if current_doctor == @doctor && @doctor.appointments.any? %>
-<%= javascript_include_tag 'appointments' %>
+  <%= javascript_include_tag 'appointments' %>
 <% else %>
-<%= javascript_include_tag 'doctors' %>
+  <%= javascript_include_tag 'doctors' %>
 <% end %>
