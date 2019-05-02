@@ -21,15 +21,6 @@ $(function() {
     for (i = 0; i < data.length; i++) {
       let d = new Doctor(
         data[i]);
-      // data[i].id,
-      // data[i].name,
-      // data[i].gender,
-      // data[i].specialty,
-      // data[i].practice_name,
-      // data[i].practice_location,
-      // data[i].phone,
-      // data[i].email,
-      // data[i].slug);
       doctors.push(d);
     }
     doctors.map(doctor => idList.push(doctor.id));
@@ -38,7 +29,6 @@ $(function() {
     alert(errorMessage);
     console.log(errorMessage);
   });
-
 
   $('#view-appointments-button').on('click', function() {
     const url = `${window.location.pathname}.json`;

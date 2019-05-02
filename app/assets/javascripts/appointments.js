@@ -38,16 +38,6 @@ function getAndAppendAppointments() {
     for (i = 0; i < data.length; i++) {
       let a = new Appointment(
         data[i]);
-      // data[i].id,
-      // data[i].date,
-      // data[i].time,
-      // data[i].description,
-      // data[i].doctor.id,
-      // data[i].patient.id,
-      // data[i].doctor.name,
-      // data[i].patient.name,
-      // data[i].doctor.slug,
-      // data[i].patient.slug);
       appointments.push(a);
     }
     let o = 0;
