@@ -12,12 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20181213164453) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "appointments", force: :cascade do |t|
-    t.bigint "doctor_id"
-    t.bigint "patient_id"
+    t.integer "doctor_id"
+    t.integer "patient_id"
     t.string "date"
     t.text "description"
     t.datetime "created_at", null: false
@@ -42,7 +39,7 @@ ActiveRecord::Schema.define(version: 20181213164453) do
     t.index ["slug"], name: "index_doctors_on_slug", unique: true
   end
 
-  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
+  create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
