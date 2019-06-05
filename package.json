@@ -1,5 +1,10 @@
 {
   "name": "appointments",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "yarn": "^1.16.0"
+  },
+  "engines": {
+    "yarn": "1.16.0"
+  }
 }
