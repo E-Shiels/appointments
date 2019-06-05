@@ -53,7 +53,6 @@ gem 'jbuilder', '~> 2.5'
  gem 'jquery-rails'
 
  gem 'rails_12factor'
- gem 'webpacker'
 
 #gem 'openssl', git: 'https://github.com/ruby/openssl'
 # Use Capistrano for deployment

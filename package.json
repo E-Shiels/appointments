@@ -5,13 +5,6 @@
     "yarn": "^1.16.0"
   },
   "engines": {
-    "yarn": "1.16.0",
-    "node": "10.15.3"
-  },
-  "devDependencies": {
-    "webpack-dev-server": "^3.6.0"
-  },
-  "scripts": {
-    "heroku-postbuild": "cd vendor && yarn"
+    "yarn": "1.16.0"
   }
 }
