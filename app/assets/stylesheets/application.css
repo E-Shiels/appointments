@@ -15,7 +15,8 @@
 */
 
 html {
-  background: url(../images/15002.jpg) no-repeat center center fixed;
+  /* background: url(../images/15002.jpg) no-repeat center center fixed; */
+  background: blue;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
