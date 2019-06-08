@@ -24,7 +24,6 @@ class SessionsController < ApplicationController
       end
     elsif request.env['omniauth.auth'].present?
       doctor = Doctor.login_with_omniauth(request.env["omniauth.auth"])
-      raise params.inspect
       login_doctor(doctor)
       redirect_to edit_doctor_path(doctor)
     end
