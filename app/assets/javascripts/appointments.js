@@ -40,7 +40,6 @@ function getAndAppendAppointments() {
         data[i]);
       appointments.push(a);
     }
-    let o = 0;
     //Empty appointments section and add appointments
     $('#doctor-appointments-section').empty();
     appointments.forEach(function(a) {
