@@ -1,17 +1,3 @@
-// class Doctor {
-//   constructor(id, name, gender, specialty, practiceName, practiceLocation, phone, email, slug) {
-//     this.id = id;
-//     this.name = name;
-//     this.gender = gender;
-//     this.specialty = specialty;
-//     this.practiceName = practiceName;
-//     this.practiceLocation = practiceLocation;
-//     this.phone = phone;
-//     this.email = email;
-//     this.slug = slug;
-//   }
-// }
-
 //ES5 Object Constructor
 function Doctor(obj) {
   this.id = obj.id;
@@ -35,15 +21,6 @@ $(function() {
     for (i = 0; i < data.length; i++) {
       let d = new Doctor(
         data[i]);
-      // data[i].id,
-      // data[i].name,
-      // data[i].gender,
-      // data[i].specialty,
-      // data[i].practice_name,
-      // data[i].practice_location,
-      // data[i].phone,
-      // data[i].email,
-      // data[i].slug);
       doctors.push(d);
     }
     doctors.map(doctor => idList.push(doctor.id));

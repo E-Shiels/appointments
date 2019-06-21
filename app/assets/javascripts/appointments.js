@@ -1,41 +1,3 @@
-// class Appointment {
-//   constructor(id, date, time, description, doctorId, patientId, doctorName, patientName, doctorSlug, patientSlug) {
-//     this.id = id;
-//     this.date = date;
-//     this.time = time;
-//     this.description = description;
-//     this.doctorId = doctorId;
-//     this.patientId = patientId;
-//     this.doctorName = doctorName;
-//     this.patientName = patientName;
-//     this.doctorSlug = doctorSlug;
-//     this.patientSlug = patientSlug;
-//   }
-//   patientUrl() {
-//     return `/patients/${this.patientSlug}`;
-//   }
-//   returnHTML() {
-//     return `<div>
-//               <table>
-//                 <tr><th>Date</th><td>${this.date}</td></tr>
-//                 <tr><th>Time</th><td>${this.time}</td></tr>
-//                 <tr><th>Patient</th><td><a href='${this.patientUrl()}'>${this.patientName}</a></td></tr>
-//               </table>
-//               <a href='/appointments/${this.id}' class='show-page-button'>View Full Details</a>
-//               <hr>
-//             </div>`
-//   }
-// }
-
-// ATTEMPT AT DYNAMIC CONSTRUCTOR
-// function Appointment2(obj) {
-//   for (let prop in obj) {
-//     console.log(prop)
-//     this.prop = obj.prop;
-//     console.log(this.prop)
-//   }
-// }
-
 function Appointment(obj) {
   this.id = obj.id;
   this.date = obj.date;
@@ -76,16 +38,6 @@ function getAndAppendAppointments() {
     for (i = 0; i < data.length; i++) {
       let a = new Appointment(
         data[i]);
-      // data[i].id,
-      // data[i].date,
-      // data[i].time,
-      // data[i].description,
-      // data[i].doctor.id,
-      // data[i].patient.id,
-      // data[i].doctor.name,
-      // data[i].patient.name,
-      // data[i].doctor.slug,
-      // data[i].patient.slug);
       appointments.push(a);
     }
     let o = 0;
