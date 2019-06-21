@@ -49,7 +49,6 @@ function getAndAppendAppointments() {
   }).fail(function(jqXHR, textStatus, errorThrown) {
     const errorMessage = 'getJSON request failed! ' + textStatus + ' - ' + errorThrown;
     alert(errorMessage);
-    console.log(errorMessage);
   });
 }
 
