@@ -38,9 +38,21 @@ $(function() {
         let newA = new Appointment(a);
         appointments.push(newA);
       });
+      // appointments.sort(function(a, b) {
+      //   return Date.parse(`${a.date}, ${a.time}`) - Date.parse(`${b.date}, ${b.time}`);
+      // });
       appointments.sort(function(a, b) {
-        return Date.parse(`${a.date}, ${a.time}`) - Date.parse(`${b.date}, ${b.time}`);
-      });
+        var nameA = a.patientName.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.patientName.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        // names must be equal
+        return 0;
+      })
       appointments.forEach(function(a) {
         $('#new-appointments-section').append(a.returnHTML());
       });
