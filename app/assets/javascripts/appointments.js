@@ -58,7 +58,7 @@ $(function() {
     let url = this.action;
     let formData = $(this).serialize();
     $.post(url, formData, function(response) {}).success($('#quick-create-form')[0].reset())
-      .then($('#appointments-state-header').html("Today\'s Appointments"))
+      .then($('#appointments-state-header').html("Today's Appointments"))
       .then(getAndAppendAppointments());
     e.preventDefault();
   });
