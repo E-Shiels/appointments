@@ -88,6 +88,5 @@
 
 <% if current_doctor == @doctor && @doctor.appointments.any? %>
   <%= javascript_include_tag 'appointments' %>
-<% else %>
-  <%= javascript_include_tag 'doctors' %>
 <% end %>
+  <%= javascript_include_tag 'doctors' %>
