@@ -25,7 +25,7 @@ Appointment.prototype.returnHTML = function() {
             </div>`
 }
 
-//Invokes function and sets inverva to run function again
+//Invokes function and sets inverval to run function again
 function setIntervalImmediately(func, interval) {
   func();
   return setInterval(func, interval);
