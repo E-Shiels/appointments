@@ -38,19 +38,22 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
- gem 'pry'
- gem 'pry-rails'
+gem 'pry'
+gem 'pry-rails'
 
- gem 'dotenv-rails'
+gem 'dotenv-rails'
 
- gem 'thin'
+gem 'thin'
 
- gem 'omniauth'
- gem 'omniauth-github'
+gem 'omniauth'
+gem 'omniauth-github'
 
- gem 'friendly_id', '~> 5.2.4'
+gem 'friendly_id', '~> 5.2.4'
 
- gem 'jquery-rails'
+gem 'jquery-rails'
+
+# TODO: remove once https://github.com/omniauth/omniauth/pull/809 is resolved
+gem "omniauth-rails_csrf_protection"
 
 #gem 'openssl', git: 'https://github.com/ruby/openssl'
 # Use Capistrano for deployment
