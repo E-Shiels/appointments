@@ -1,5 +1,6 @@
 <h1>Doctor Signup</h1>
-<%= link_to("Sign up with GitHub", "/auth/github", class: "home-page-link") %>
+<%# TODO: remove method: :post once https://github.com/omniauth/omniauth/pull/809 is resolved %>
+<%= link_to("Sign up with GitHub", "/auth/github", class: "home-page-link", method: :post) %>
 <h2>All fields are required. </h2>
 <%= form_for @doctor do |f| %>
 
@@ -17,8 +18,8 @@
 <%= f.button "Signup"%>
 <% end %>
 <div class="margin-top-div">
-# TODO: remove method: :post once https://github.com/omniauth/omniauth/pull/809 is resolved
-  <%= link_to "Back", root_path, data: { confirm: 'Are you sure you want to cancel account creation?'}, :class => "show-page-button", method: :post%>
+
+  <%= link_to "Back", root_path, data: { confirm: 'Are you sure you want to cancel account creation?'}, :class => "show-page-button"%>
 </div>
 
 <div class='space-bottom-div'>
